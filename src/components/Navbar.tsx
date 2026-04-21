@@ -26,9 +26,11 @@ const Navbar = ({ onNavigate, currentPage }: NavbarProps) => {
           className="flex items-center gap-3 cursor-pointer group"
           onClick={() => onNavigate('home')}
         >
-          <div className="bg-primary px-3 py-1 rounded-lg">
-            <span className="font-display font-black text-2xl tracking-tighter text-white lowercase">seo growthers</span>
-          </div>
+          <img 
+            src="/imagenes/logo/logo.png" 
+            alt="SEO Growthers Logo" 
+            className="h-10 w-auto object-contain"
+          />
         </div>
 
         {/* Desktop Nav */}

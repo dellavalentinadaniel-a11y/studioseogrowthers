@@ -38,8 +38,12 @@ const Footer = () => (
     {/* Links Footer */}
     <div className="grid md:grid-cols-4 gap-12 pb-12 border-b border-white/5">
       <div className="col-span-2">
-        <div className="bg-primary px-3 py-1 rounded-lg inline-block mb-6">
-          <span className="font-display font-black text-2xl tracking-tighter text-white lowercase">seo growthers</span>
+        <div className="mb-6">
+          <img 
+            src="/imagenes/logo/logo.png" 
+            alt="SEO Growthers Logo" 
+            className="h-12 w-auto object-contain"
+          />
         </div>
         <p className="text-gray-500 max-w-sm text-sm leading-relaxed">
           Estudio de diseño y desarrollo web especializado en conversión y crecimiento digital. 

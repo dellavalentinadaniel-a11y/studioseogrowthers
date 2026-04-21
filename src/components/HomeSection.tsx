@@ -31,6 +31,13 @@ const HomeSection = ({ onNavigate }: HomeSectionProps) => (
           transition={{ delay: 0.1 }}
           className="text-left"
         >
+          <div className="mb-6">
+            <img 
+              src="/imagenes/logo/logo.png" 
+              alt="Logo Isotipo" 
+              className="h-16 w-auto object-contain"
+            />
+          </div>
           <span className="text-primary font-bold tracking-widest uppercase text-sm mb-4 block">
             Diseño Web de Alto Vuelo
           </span>
