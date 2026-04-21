@@ -32,7 +32,7 @@ const Navbar = ({ onNavigate, currentPage }: NavbarProps) => {
             alt="SEO Growthers Logo" 
             className="h-9 w-auto object-contain relative z-10 transition-transform duration-500 group-hover:scale-105"
           />
-        </div>
+        </a>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
