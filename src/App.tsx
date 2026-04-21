@@ -27,7 +27,7 @@ import {
 } from 'lucide-react';
 
 // --- Types ---
-type PageId = 'home' | 'landing' | 'corporativa' | 'ecommerce';
+type PageId = 'home' | 'landing' | 'corporativa' | 'ecommerce' | 'aluvalle';
 
 // --- Components ---
 
@@ -76,7 +76,7 @@ const Navbar = ({ onNavigate, currentPage }: { onNavigate: (id: PageId) => void,
           <a 
             href="https://wa.me/tu-numero" 
             target="_blank" 
-            rel="no-referrer"
+            rel="noopener noreferrer"
             className="bg-primary hover:bg-blue-500 text-white px-6 py-2.5 rounded-full font-bold text-sm shadow-lg shadow-blue-900/20 transition-all"
           >
             Presupuesto
@@ -202,6 +202,7 @@ const TestimonialCarousel = () => {
           <button 
             onClick={prev}
             className="absolute left-0 z-20 w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center text-white/40 hover:text-white hover:bg-white/10 transition-all opacity-0 group-hover:opacity-100 -translate-x-6 md:translate-x-0"
+            aria-label="Anterior"
           >
             <ArrowRight className="rotate-180" size={20} />
           </button>
@@ -209,6 +210,7 @@ const TestimonialCarousel = () => {
           <button 
             onClick={next}
             className="absolute right-0 z-20 w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center text-white/40 hover:text-white hover:bg-white/10 transition-all opacity-0 group-hover:opacity-100 translate-x-6 md:translate-x-0"
+            aria-label="Siguiente"
           >
             <ArrowRight size={20} />
           </button>
@@ -250,6 +252,7 @@ const TestimonialCarousel = () => {
             <button
               key={i}
               onClick={() => setIndex(i)}
+              aria-label={`Ver testimonio ${i + 1}`}
               className={`h-1.5 rounded-full transition-all duration-500 ${
                 index === i ? 'w-10 bg-primary shadow-[0_0_15px_rgba(37,99,235,0.5)]' : 'w-2 bg-white/10'
               }`}
@@ -378,22 +381,36 @@ const HomeSection = ({ onNavigate }: { onNavigate: (id: PageId) => void }) => (
             Caso Aluvalle: +300% Tráfico Orgánico.
           </h2>
           <p className="text-gray-400 text-lg mb-10 leading-relaxed">
-            Implementamos una estrategia 360° que multiplicó sus leads comerciales. De lo tradicional a una máquina de ventas digital.
+            Transformación digital completa: de tecnología obsoleta a una plataforma de alto rendimiento que multiplica leads.
           </p>
-          <div className="flex gap-4">
+          <div className="flex gap-4 mb-8">
             <div className="bg-black/40 px-6 py-4 rounded-2xl border border-white/5 flex-1">
               <span className="block text-primary font-black text-3xl mb-1">ROI x5</span>
               <span className="text-[10px] uppercase text-gray-500 font-bold tracking-widest">Retorno Real</span>
             </div>
             <div className="bg-black/40 px-6 py-4 rounded-2xl border border-white/5 flex-1">
-              <span className="block text-primary font-black text-3xl mb-1">+4.2k</span>
-              <span className="text-[10px] uppercase text-gray-500 font-bold tracking-widest">Leads Mensuales</span>
+              <span className="block text-primary font-black text-3xl mb-1">+1.2k</span>
+              <span className="text-[10px] uppercase text-gray-500 font-bold tracking-widest">Visitas Orgánicas</span>
             </div>
           </div>
+          <button 
+            onClick={() => onNavigate('aluvalle')}
+            className="flex items-center gap-2 text-primary font-bold hover:gap-4 transition-all"
+          >
+            Ver Caso de Éxito Completo <ArrowRight size={20} />
+          </button>
         </div>
-        <div className="bg-primary flex items-center justify-center p-12 min-h-[400px] relative overflow-hidden group">
+        <div 
+          className="bg-primary flex items-center justify-center p-12 min-h-[400px] relative overflow-hidden group cursor-pointer"
+          onClick={() => onNavigate('aluvalle')}
+        >
+          <img 
+            src="/imagenes/casos de exito/aluvalle-premium.webp" 
+            alt="Aluvalle Premium" 
+            className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-110 transition-transform duration-700"
+          />
           <div className="absolute inset-0 bg-blue-600/20 blur-3xl group-hover:bg-blue-600/40 transition-colors"></div>
-          <div className="text-white font-black text-6xl md:text-8xl tracking-tight opacity-20 select-none relative z-10 transition-transform group-hover:scale-110">
+          <div className="text-white font-black text-6xl md:text-8xl tracking-tight relative z-10 drop-shadow-2xl">
             ALUVALLE
           </div>
         </div>
@@ -406,6 +423,115 @@ const HomeSection = ({ onNavigate }: { onNavigate: (id: PageId) => void }) => (
     {/* Testimonials Carousel */}
     <TestimonialCarousel />
   </>
+);
+
+const SuccessCaseAluvalle = ({ onBack }: { onBack: () => void }) => (
+  <section className="py-24 px-[8%] max-w-6xl mx-auto">
+    <button 
+      onClick={onBack}
+      className="mb-12 flex items-center gap-2 text-gray-400 hover:text-white transition-colors font-bold uppercase tracking-widest text-[10px]"
+    >
+      <ArrowRight className="rotate-180" size={16} /> Volver a Inicio
+    </button>
+
+    <header className="mb-20">
+      <Badge>Caso de Éxito</Badge>
+      <h1 className="text-5xl md:text-7xl font-black mb-8 leading-[1] text-white">
+        Aluvalle: Transformación Digital e <span className="text-primary">Impacto SEO</span>
+      </h1>
+      <p className="text-xl text-gray-400 max-w-3xl leading-relaxed">
+        Este proyecto detalla el proceso de desarrollo web y la estrategia de optimización en motores de búsqueda realizada por SEOGrowthers. El objetivo fue migrar de una presencia limitada a una plataforma de alto rendimiento capaz de captar leads cualificados.
+      </p>
+    </header>
+
+    <div className="grid md:grid-cols-2 gap-16 mb-24">
+      <div>
+        <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+          <span className="w-8 h-8 bg-white/5 rounded-lg flex items-center justify-center text-primary text-sm">01</span>
+          El Desafío
+        </h3>
+        <div className="space-y-4 text-gray-400">
+          <p>Aluvalle presentaba un sitio web con tecnología obsoleta que no cumplía con los estándares modernos de usabilidad (UX) ni con las métricas de Core Web Vitals.</p>
+          <ul className="space-y-3">
+            <li className="flex gap-3"><CheckCircle2 className="text-primary shrink-0" size={20} /> Velocidad de carga lenta, especialmente en móviles.</li>
+            <li className="flex gap-3"><CheckCircle2 className="text-primary shrink-0" size={20} /> Arquitectura de información confusa.</li>
+            <li className="flex gap-3"><CheckCircle2 className="text-primary shrink-0" size={20} /> Baja visibilidad orgánica para keywords estratégicas.</li>
+            <li className="flex gap-3"><CheckCircle2 className="text-primary shrink-0" size={20} /> Falta de identidad visual coherente.</li>
+          </ul>
+        </div>
+      </div>
+      <div className="bg-white/5 rounded-[32px] overflow-hidden border border-white/10 aspect-video flex items-center justify-center">
+        <img src="/imagenes/casos de exito/aluvalle-case.webp" alt="Aluvalle Desafío" className="w-full h-full object-cover" />
+      </div>
+    </div>
+
+    <div className="grid md:grid-cols-2 gap-16 mb-24 items-center">
+      <div className="order-2 md:order-1 bg-white/5 rounded-[32px] overflow-hidden border border-white/10 aspect-video flex items-center justify-center">
+        <img src="/imagenes/casos de exito/aluvalle-screens.webp" alt="Aluvalle Screens" className="w-full h-full object-cover" />
+      </div>
+      <div className="order-1 md:order-2">
+        <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+          <span className="w-8 h-8 bg-white/5 rounded-lg flex items-center justify-center text-primary text-sm">02</span>
+          Nuestra Solución Técnica
+        </h3>
+        <div className="space-y-6">
+          <div>
+            <h4 className="text-white font-bold mb-2 uppercase text-xs tracking-widest text-primary">Desarrollo Full-Stack</h4>
+            <p className="text-gray-400 text-sm leading-relaxed">
+              Stack moderno basado en <strong>React y Next.js</strong> (SSG/SSR) para tiempos de respuesta instantáneos. Tailwind CSS para un diseño responsivo y WebP/AVIF para optimización de imágenes.
+            </p>
+          </div>
+          <div>
+            <h4 className="text-white font-bold mb-2 uppercase text-xs tracking-widest text-primary">Estrategia SEO de Autoridad</h4>
+            <p className="text-gray-400 text-sm leading-relaxed">
+              Arquitectura de contenidos basada en <strong>silos (E-E-A-T)</strong>, investigación de keywords long-tail, optimización On-Page y datos estructurados (Local Business/Product).
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div className="mb-24">
+      <h3 className="text-2xl font-bold text-white mb-12 text-center">Resultados Obtenidos (KPIs)</h3>
+      <div className="grid md:grid-cols-3 gap-8 text-center">
+        {[
+          { label: "Puntaje Core Web Vitals (LCP)", before: "4.2s (Pobre)", after: "1.1s (Excelente)", icon: Zap },
+          { label: "Tráfico Orgánico Mensual", before: "~150 visitas", after: "+1,200 visitas", icon: Globe },
+          { label: "Tasa de Conversión (Leads)", before: "0.5%", after: "3.8%", icon: TrendingUp },
+        ].map((kpi, i) => (
+          <div key={i} className="bg-white/5 p-8 rounded-3xl border border-white/5 backdrop-blur-xl relative group hover:border-primary/30 transition-all">
+            <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center mx-auto mb-6 text-primary group-hover:scale-110 transition-transform">
+              <kpi.icon size={24} />
+            </div>
+            <h4 className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-6">{kpi.label}</h4>
+            <div className="space-y-4">
+              <div>
+                <span className="block text-[10px] uppercase font-bold text-gray-600">Antes</span>
+                <span className="text-lg font-bold text-gray-400 line-through decoration-red-500/50">{kpi.before}</span>
+              </div>
+              <div className="pt-4 border-t border-white/5">
+                <span className="block text-[10px] uppercase font-bold text-primary">Después</span>
+                <span className="text-3xl font-black text-white">{kpi.after}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <footer className="bg-primary/10 border border-primary/20 p-12 rounded-[40px] text-center">
+      <h3 className="text-3xl font-black text-white mb-6">Conclusión</h3>
+      <p className="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed mb-8">
+        El proyecto Aluvalle demuestra que la combinación de un desarrollo técnico impecable con una estrategia SEO orientada al usuario es la clave para el éxito en el entorno digital actual.
+      </p>
+      <button 
+        onClick={onBack}
+        className="bg-primary hover:bg-blue-500 text-white px-8 py-4 rounded-full font-bold transition-all shadow-xl shadow-blue-900/40"
+      >
+        Empezar mi transformación
+      </button>
+    </footer>
+  </section>
 );
 
 const PlanDetailLayout = ({ 
@@ -565,6 +691,17 @@ export default function App() {
               />
             </motion.div>
           )}
+
+          {currentPage === 'aluvalle' && (
+            <motion.div 
+              key="aluvalle"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 1.05 }}
+            >
+              <SuccessCaseAluvalle onBack={() => navigateTo('home')} />
+            </motion.div>
+          )}
         </AnimatePresence>
       </main>
 
@@ -585,7 +722,7 @@ export default function App() {
           <a 
             href={ctaLink} 
             target="_blank" 
-            rel="no-referrer"
+            rel="noopener noreferrer"
             className="relative z-10 bg-primary hover:bg-blue-500 text-white px-12 py-7 rounded-full font-black text-xl shadow-[0_25px_60px_rgba(37,99,235,0.4)] transition-all active:scale-95 group/btn overflow-hidden flex items-center gap-4"
           >
             <span className="relative z-10">Solicitar Auditoría</span>
@@ -626,7 +763,7 @@ export default function App() {
       <motion.a 
         href={ctaLink}
         target="_blank"
-        rel="no-referrer"
+        rel="noopener noreferrer"
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         whileHover={{ scale: 1.1 }}
