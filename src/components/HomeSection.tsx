@@ -162,42 +162,50 @@ const HomeSection = ({ onNavigate }: HomeSectionProps) => (
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
           {[
             { id: 'landing' as PageId, title: "Landing Page", icon: Layout, desc: "Es una página web diseñada específicamente para convertir visitantes en clientes o contactos, enfocándose en un solo objetivo claro." },
             { id: 'landing' as PageId, title: "One Page", icon: Smartphone, desc: "Una página única que concentra tu propuesta de valor, diseñada para presentar información de una empresa o proyecto en una sola página web." },
             { id: 'corporativa' as PageId, title: "Corporativo o clásico", icon: Globe, desc: "Presenta la identidad de la empresa, diseñada para comunicar con sobriedad y guiar al visitante hacia la información clave de sus servicios y contactos." },
             { id: 'ecommerce' as PageId, title: "Tienda Online", icon: MousePointerClick, desc: "Reúne tus productos en un solo espacio digital, diseñada para mostrar con orden y guiar al visitante hacia la compra que lo convierte en cliente." },
           ].map((card, i) => (
-            <div key={i} className="bg-white p-8 rounded-[32px] text-black flex flex-col h-full relative overflow-hidden group cursor-pointer" onClick={() => onNavigate(card.id)}>
-              <div className="mb-6 text-primary">
-                <card.icon size={40} strokeWidth={1.5} />
+            <div 
+              key={i} 
+              className="bg-white p-10 rounded-[45px] text-black flex flex-col h-[420px] relative overflow-hidden group cursor-pointer border border-primary/5 shadow-xl shadow-black/5"
+              onClick={() => onNavigate(card.id)}
+            >
+              <div className="mb-10 text-primary">
+                <card.icon size={44} strokeWidth={1.2} />
               </div>
-              <h3 className="text-2xl font-black mb-4">{card.title}</h3>
-              <p className="text-gray-600 text-sm leading-relaxed mb-8 flex-1">{card.desc}</p>
-              <button className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest group-hover:text-primary transition-colors">
-                Saber más <ArrowRight size={14} className="text-primary" />
+              <h3 className="text-2xl font-black mb-6 leading-tight pr-4">{card.title}</h3>
+              <p className="text-gray-500 text-[13px] leading-relaxed mb-8 flex-1">{card.desc}</p>
+              <button className="flex items-center gap-2 text-[11px] font-black uppercase tracking-widest text-primary transition-all group-hover:gap-4">
+                Saber más <ArrowRight size={16} />
               </button>
-              <div className="absolute bottom-0 right-0 w-24 h-24 bg-primary/10 rounded-tl-[64px] transition-all group-hover:scale-110"></div>
+              
+              {/* Circular Overlay Pattern */}
+              <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-primary/5 rounded-full group-hover:scale-110 transition-transform duration-700"></div>
             </div>
           ))}
         </div>
 
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-black">Plataformas Online</h2>
+          <h2 className="text-4xl font-black text-white tracking-tight">Plataformas Online</h2>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-32">
           {[
             { title: "Plataforma Mayorista", desc: "Acoplado a tu tienda Online permite que gestiones clientes, precios, descuentos y productos al por mayor y al por menor." },
             { title: "E-Learning", desc: "Permite que gestiones cursos, alumnos, evaluaciones y contenidos digitales, tanto en formación individual como en programas grupales." },
             { title: "Diario Online", desc: "Gestión de noticias, redactores, secciones y contenidos digitales, tanto en publicaciones diarias como en ediciones especiales." },
             { title: "Inmobiliarias", desc: "Gestioná tus propiedades, agentes, categorías y contenidos digitales, tanto en publicaciones individuales como en catálogos completos." },
           ].map((card, i) => (
-            <div key={i} className="bg-primary p-8 rounded-[32px] text-white flex flex-col h-full relative overflow-hidden group">
-              <h3 className="text-2xl font-black mb-4">{card.title}</h3>
-              <p className="text-white/80 text-sm leading-relaxed mb-8 flex-1">{card.desc}</p>
-              <div className="absolute bottom-0 right-0 w-24 h-24 bg-black/10 rounded-tl-[64px]"></div>
+            <div key={i} className="bg-primary p-10 rounded-[45px] text-white flex flex-col h-[380px] relative overflow-hidden group border border-white/5 hover:scale-[1.02] transition-all duration-500">
+              <h3 className="text-2xl font-black mb-6 leading-tight">{card.title}</h3>
+              <p className="text-white/80 text-[13px] leading-relaxed mb-8 flex-1">{card.desc}</p>
+              
+              {/* Circular Overlay Pattern */}
+              <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-black/10 rounded-full group-hover:scale-110 transition-transform duration-700"></div>
             </div>
           ))}
         </div>
