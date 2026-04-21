@@ -38,13 +38,13 @@ const Footer = () => (
     {/* Links Footer */}
     <div className="grid md:grid-cols-4 gap-12 pb-12 border-b border-white/5">
       <div className="col-span-2">
-        <div className="mb-6">
+        <a href="https://seogrowthers.com/" className="mb-6 block group">
           <img 
             src="/imagenes/logo/logo.png" 
             alt="SEO Growthers Logo" 
-            className="h-12 w-auto object-contain"
+            className="h-12 w-auto object-contain transition-transform group-hover:scale-105"
           />
-        </div>
+        </a>
         <p className="text-gray-500 max-w-sm text-sm leading-relaxed">
           Estudio de diseño y desarrollo web especializado en conversión y crecimiento digital. 
           Ayudamos a marcas y profesionales a escalar mediante tecnología y estrategia.

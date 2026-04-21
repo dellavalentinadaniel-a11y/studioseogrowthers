@@ -22,9 +22,9 @@ const Navbar = ({ onNavigate, currentPage }: NavbarProps) => {
   return (
     <header className="sticky top-0 z-50 bg-dark/60 backdrop-blur-md border-b border-white/5 px-[8%] py-6">
       <div className="flex justify-between items-center">
-        <div 
+        <a 
+          href="https://seogrowthers.com/"
           className="flex items-center cursor-pointer group relative"
-          onClick={() => onNavigate('home')}
         >
           <div className="absolute -inset-2 bg-primary/20 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           <img 
