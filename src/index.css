@@ -5,11 +5,12 @@
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Outfit", sans-serif;
   
-  --color-primary: #2563eb;
+  --color-primary: #e11d48;
   --color-dark: #050505;
   --color-light-gray: #F5F7F9;
   --color-surface: rgba(255, 255, 255, 0.05);
   --color-surface-border: rgba(255, 255, 255, 0.1);
+  --color-red-romero: #e11d48;
 
   --radius-xl: 24px;
   --radius-2xl: 32px;

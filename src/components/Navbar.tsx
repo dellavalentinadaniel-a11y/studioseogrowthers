@@ -1,0 +1,97 @@
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { Menu, X } from 'lucide-react';
+
+export type PageId = 'home' | 'landing' | 'corporativa' | 'ecommerce' | 'aluvalle';
+
+interface NavbarProps {
+  onNavigate: (id: PageId) => void;
+  currentPage: PageId;
+}
+
+const Navbar = ({ onNavigate, currentPage }: NavbarProps) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const navItems = [
+    { id: 'home', label: 'Home' },
+    { id: 'landing', label: 'Landing Pro' },
+    { id: 'corporativa', label: 'Corporativa' },
+    { id: 'ecommerce', label: 'E-Commerce' },
+  ];
+
+  return (
+    <header className="sticky top-0 z-50 bg-dark/60 backdrop-blur-md border-b border-white/5 px-[8%] py-6">
+      <div className="flex justify-between items-center">
+        <div 
+          className="flex items-center gap-3 cursor-pointer group"
+          onClick={() => onNavigate('home')}
+        >
+          <div className="bg-primary px-3 py-1 rounded-lg">
+            <span className="font-display font-black text-2xl tracking-tighter text-white lowercase">romero</span>
+          </div>
+        </div>
+
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex items-center gap-8">
+          {navItems.map((item) => (
+            <button
+              key={item.id}
+              onClick={() => onNavigate(item.id as PageId)}
+              className={`text-sm font-semibold transition-colors hover:text-white ${
+                currentPage === item.id ? 'text-white border-b-2 border-primary pb-1' : 'text-gray-400'
+              }`}
+            >
+              {item.label}
+            </button>
+          ))}
+          <a 
+            href="https://wa.me/tu-numero" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="bg-primary hover:bg-red-700 text-white px-6 py-2.5 rounded-full font-bold text-sm shadow-lg shadow-blue-900/20 transition-all"
+          >
+            Presupuesto
+          </a>
+        </nav>
+
+        {/* Mobile Toggle */}
+        <button className="md:hidden text-gray-400" onClick={() => setIsOpen(!isOpen)}>
+          {isOpen ? <X /> : <Menu />}
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="absolute top-full left-0 w-full bg-dark/95 backdrop-blur-xl border-b border-white/5 p-6 flex flex-col gap-4 md:hidden"
+          >
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => {
+                  onNavigate(item.id as PageId);
+                  setIsOpen(false);
+                }}
+                className={`text-left text-lg font-bold ${currentPage === item.id ? 'text-primary' : 'text-white'}`}
+              >
+                {item.label}
+              </button>
+            ))}
+            <a 
+              href="https://wa.me/tu-numero" 
+              className="bg-primary text-white text-center py-4 rounded-xl font-bold"
+            >
+              Consultar Proyecto
+            </a>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </header>
+  );
+};
+
+export default Navbar;
