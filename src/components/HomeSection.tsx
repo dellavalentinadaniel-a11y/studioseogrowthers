@@ -15,6 +15,7 @@ import {
 import type { PageId } from './Navbar';
 import ServicesSection from './ServicesSection';
 import TestimonialCarousel from './TestimonialCarousel';
+import PortfolioSection from './PortfolioSection';
 
 interface HomeSectionProps {
   onNavigate: (id: PageId) => void;
@@ -31,14 +32,18 @@ const HomeSection = ({ onNavigate }: HomeSectionProps) => (
           transition={{ delay: 0.1 }}
           className="text-left"
         >
-          <div className="mb-6">
-            <img 
-              src="/imagenes/logo/logo.png" 
-              alt="Logo Isotipo" 
-              className="h-16 w-auto object-contain"
-            />
+          <div className="mb-10 relative inline-block">
+            <div className="absolute -inset-4 bg-primary/20 rounded-full blur-2xl animate-pulse"></div>
+            <div className="relative bg-white/5 backdrop-blur-xl border border-white/10 p-5 rounded-3xl shadow-2xl">
+              <img 
+                src="/imagenes/logo/logo.png" 
+                alt="Logo Isotipo" 
+                className="h-20 w-auto object-contain"
+              />
+            </div>
           </div>
-          <span className="text-primary font-bold tracking-widest uppercase text-sm mb-4 block">
+          <span className="text-primary font-bold tracking-widest uppercase text-xs mb-4 block flex items-center gap-2">
+            <span className="w-8 h-[1px] bg-primary/50"></span>
             Diseño Web de Alto Vuelo
           </span>
           <h1 className="text-6xl md:text-8xl font-black mb-8 leading-[1] tracking-tight">
@@ -331,6 +336,9 @@ const HomeSection = ({ onNavigate }: HomeSectionProps) => (
         </div>
       </div>
     </section>
+
+    {/* Portfolio Section */}
+    <PortfolioSection onNavigate={onNavigate} />
 
     {/* Key Services Interactive Icons */}
     <ServicesSection />
