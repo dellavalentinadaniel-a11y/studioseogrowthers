@@ -54,7 +54,7 @@ const PlanDetailLayout = ({
         </div>
         <button 
           onClick={onCtaClick}
-          className="mt-12 bg-primary hover:bg-red-700 text-white px-10 py-5 rounded-full font-black text-lg shadow-2xl shadow-red-900/40 transition-all active:scale-95"
+          className="mt-12 bg-primary hover:bg-cyan-700 text-white px-10 py-5 rounded-full font-black text-lg shadow-2xl shadow-cyan-900/40 transition-all active:scale-95"
         >
           Consultar Proyecto
         </button>

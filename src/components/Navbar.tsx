@@ -27,7 +27,7 @@ const Navbar = ({ onNavigate, currentPage }: NavbarProps) => {
           onClick={() => onNavigate('home')}
         >
           <div className="bg-primary px-3 py-1 rounded-lg">
-            <span className="font-display font-black text-2xl tracking-tighter text-white lowercase">romero</span>
+            <span className="font-display font-black text-2xl tracking-tighter text-white lowercase">seo growthers</span>
           </div>
         </div>
 

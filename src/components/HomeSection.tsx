@@ -36,7 +36,7 @@ const HomeSection = ({ onNavigate }: HomeSectionProps) => (
             Sitios web <span className="text-primary">a medida</span> de tus necesidades
           </h1>
           <p className="text-lg text-gray-400 mb-10 leading-relaxed max-w-xl">
-            En <span className="text-white font-bold">romero.ar</span> creamos sitios web pensados para hacer crecer tu negocio. 
+            En <span className="text-white font-bold">seogrowthers.com</span> creamos sitios web pensados para hacer crecer tu negocio. 
             Hacemos foco en tu objetivo: <span className="text-white font-bold">atraer, comunicar y vender.</span> 
             Combinamos diseños atractivos con estrategia comercial para que tu negocio despegue.
           </p>
@@ -44,7 +44,7 @@ const HomeSection = ({ onNavigate }: HomeSectionProps) => (
           <div className="flex flex-col sm:flex-row items-center gap-6">
             <button 
               onClick={() => onNavigate('landing')}
-              className="bg-primary hover:bg-red-700 text-white px-8 py-4 rounded-xl font-bold flex items-center gap-3 transition-all group w-full sm:w-auto justify-center"
+              className="bg-primary hover:bg-cyan-700 text-white px-8 py-4 rounded-xl font-bold flex items-center gap-3 transition-all group w-full sm:w-auto justify-center"
             >
               Nuestros Servicios 
               <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform" />
@@ -118,7 +118,7 @@ const HomeSection = ({ onNavigate }: HomeSectionProps) => (
             Diseño web que se <span className="text-primary">ajusta a tus necesidades</span>
           </h2>
           <p className="text-gray-400 max-w-4xl text-sm leading-relaxed">
-            En <span className="text-white">romero.ar</span> desarrollamos sitios webs <span className="text-white">modernos, atractivos y ágiles</span> pensados en tu marca o negocio. Trabajamos para asegurarnos que tu sitio te represente haciéndolo 100% a medida. Diseñamos sitios web para todos los niveles y necesidades: desde opciones económicas para emprendedores, freelancers y profesionales independientes (como abogados, diseñadores, médicos o contadores), hasta desarrollos a medida para pymes y empresas consolidadas. Tu presencia online, con identidad propia y lista para crecer.
+            En <span className="text-white">seogrowthers.com</span> desarrollamos sitios webs <span className="text-white">modernos, atractivos y ágiles</span> pensados en tu marca o negocio. Trabajamos para asegurarnos que tu sitio te represente haciéndolo 100% a medida. Diseñamos sitios web para todos los niveles y necesidades: desde opciones económicas para emprendedores, freelancers y profesionales independientes (como abogados, diseñadores, médicos o contadores), hasta desarrollos a medida para pymes y empresas consolidadas. Tu presencia online, con identidad propia y lista para crecer.
           </p>
         </div>
 
@@ -156,7 +156,7 @@ const HomeSection = ({ onNavigate }: HomeSectionProps) => (
             </h2>
           </div>
           <p className="text-gray-400 text-sm leading-relaxed">
-            En romero.ar desarrollamos todo tipo de webs, desde landing pages y sitios corporativos, hasta plataformas. Somos la puerta de entrada de tu empresa o negocio a internet.
+            En seogrowthers.com desarrollamos todo tipo de webs, desde landing pages y sitios corporativos, hasta plataformas. Somos la puerta de entrada de tu empresa o negocio a internet.
           </p>
         </div>
 

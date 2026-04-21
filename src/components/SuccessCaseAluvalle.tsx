@@ -88,7 +88,7 @@ const SuccessCaseAluvalle = ({ onBack }: SuccessCaseAluvalleProps) => (
             <div className="space-y-4">
               <div>
                 <span className="block text-[10px] uppercase font-bold text-gray-600">Antes</span>
-                <span className="text-lg font-bold text-gray-400 line-through decoration-red-500/50">{kpi.before}</span>
+                <span className="text-lg font-bold text-gray-400 line-through decoration-cyan-500/50">{kpi.before}</span>
               </div>
               <div className="pt-4 border-t border-white/5">
                 <span className="block text-[10px] uppercase font-bold text-primary">Después</span>
@@ -107,7 +107,7 @@ const SuccessCaseAluvalle = ({ onBack }: SuccessCaseAluvalleProps) => (
       </p>
       <button 
         onClick={onBack}
-        className="bg-primary hover:bg-red-700 text-white px-8 py-4 rounded-full font-bold transition-all shadow-xl shadow-red-900/40"
+        className="bg-primary hover:bg-cyan-700 text-white px-8 py-4 rounded-full font-bold transition-all shadow-xl shadow-cyan-900/40"
       >
         Empezar mi transformación
       </button>

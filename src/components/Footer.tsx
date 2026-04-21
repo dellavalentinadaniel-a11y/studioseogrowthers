@@ -23,7 +23,7 @@ const Footer = () => (
           href="https://wa.me/tu-numero" 
           target="_blank" 
           rel="noopener noreferrer"
-          className="bg-primary hover:bg-red-700 text-white px-10 py-6 rounded-3xl font-black text-xl flex items-center justify-center gap-4 transition-all shadow-2xl shadow-red-900/40 active:scale-95"
+          className="bg-primary hover:bg-cyan-700 text-white px-10 py-6 rounded-3xl font-black text-xl flex items-center justify-center gap-4 transition-all shadow-2xl shadow-red-900/40 active:scale-95"
         >
           <MessageCircle size={28} />
           WhatsApp
@@ -39,7 +39,7 @@ const Footer = () => (
     <div className="grid md:grid-cols-4 gap-12 pb-12 border-b border-white/5">
       <div className="col-span-2">
         <div className="bg-primary px-3 py-1 rounded-lg inline-block mb-6">
-          <span className="font-display font-black text-2xl tracking-tighter text-white lowercase">romero</span>
+          <span className="font-display font-black text-2xl tracking-tighter text-white lowercase">seo growthers</span>
         </div>
         <p className="text-gray-500 max-w-sm text-sm leading-relaxed">
           Estudio de diseño y desarrollo web especializado en conversión y crecimiento digital. 
@@ -67,7 +67,7 @@ const Footer = () => (
     </div>
 
     <div className="pt-12 flex flex-col md:flex-row justify-between items-center gap-6 text-gray-600 text-xs font-bold uppercase tracking-widest">
-      <div>© {new Date().getFullYear()} ROMERO.AR - TODOS LOS DERECHOS RESERVADOS.</div>
+      <div>© {new Date().getFullYear()} SEOGROWTHERS.COM - TODOS LOS DERECHOS RESERVADOS.</div>
       <div className="flex gap-8">
         <span className="hover:text-white transition-colors cursor-pointer">Privacidad</span>
         <span className="hover:text-white transition-colors cursor-pointer">Términos</span>

@@ -1,16 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Outfit:wght@400;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@300;500;700&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Outfit", sans-serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
   
-  --color-primary: #e11d48;
-  --color-dark: #050505;
+  --color-primary: #00B5D1;
+  --color-dark: #0A111D;
   --color-light-gray: #F5F7F9;
   --color-surface: rgba(255, 255, 255, 0.05);
   --color-surface-border: rgba(255, 255, 255, 0.1);
-  --color-red-romero: #e11d48;
+  --color-teal-growthers: #00B5D1;
 
   --radius-xl: 24px;
   --radius-2xl: 32px;
