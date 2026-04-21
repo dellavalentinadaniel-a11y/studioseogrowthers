@@ -14,9 +14,9 @@ const Navbar = ({ onNavigate, currentPage }: NavbarProps) => {
 
   const navItems = [
     { id: 'home', label: 'Home' },
-    { id: 'landing', label: 'Landing Pro' },
-    { id: 'corporativa', label: 'Corporativa' },
-    { id: 'ecommerce', label: 'E-Commerce' },
+    { id: 'landing', label: 'Landing Page o One Page' },
+    { id: 'corporativa', label: 'Sitio web corporativo o clásico' },
+    { id: 'ecommerce', label: 'Tiendas online' },
   ];
 
   return (
@@ -48,7 +48,7 @@ const Navbar = ({ onNavigate, currentPage }: NavbarProps) => {
             href="https://wa.me/tu-numero" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="bg-primary hover:bg-red-700 text-white px-6 py-2.5 rounded-full font-bold text-sm shadow-lg shadow-blue-900/20 transition-all"
+            className="bg-primary hover:bg-cyan-700 text-white px-6 py-2.5 rounded-full font-bold text-sm shadow-lg shadow-blue-900/20 transition-all"
           >
             Presupuesto
           </a>

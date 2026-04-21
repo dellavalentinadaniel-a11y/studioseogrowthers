@@ -8,7 +8,9 @@ import {
   CheckCircle2, 
   Search,
   MousePointerClick,
-  Sparkles
+  Sparkles,
+  MessageCircle,
+  Layout
 } from 'lucide-react';
 import type { PageId } from './Navbar';
 import ServicesSection from './ServicesSection';
@@ -162,12 +164,15 @@ const HomeSection = ({ onNavigate }: HomeSectionProps) => (
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {[
-            { id: 'landing' as PageId, title: "Landing Page", desc: "Es una página web diseñada específicamente para convertir visitantes en clientes o contactos, enfocándose en un solo objetivo claro." },
-            { id: 'landing' as PageId, title: "One Page", desc: "Una página única que concentra tu propuesta de valor, diseñada para presentar información de una empresa o proyecto en una sola página web." },
-            { id: 'corporativa' as PageId, title: "Corporativo o clásico", desc: "Presenta la identidad de la empresa, diseñada para comunicar con sobriedad y guiar al visitante hacia la información clave de sus servicios y contactos." },
-            { id: 'ecommerce' as PageId, title: "Tienda Online", desc: "Reúne tus productos en un solo espacio digital, diseñada para mostrar con orden y guiar al visitante hacia la compra que lo convierte en cliente." },
+            { id: 'landing' as PageId, title: "Landing Page", icon: Layout, desc: "Es una página web diseñada específicamente para convertir visitantes en clientes o contactos, enfocándose en un solo objetivo claro." },
+            { id: 'landing' as PageId, title: "One Page", icon: Smartphone, desc: "Una página única que concentra tu propuesta de valor, diseñada para presentar información de una empresa o proyecto en una sola página web." },
+            { id: 'corporativa' as PageId, title: "Corporativo o clásico", icon: Globe, desc: "Presenta la identidad de la empresa, diseñada para comunicar con sobriedad y guiar al visitante hacia la información clave de sus servicios y contactos." },
+            { id: 'ecommerce' as PageId, title: "Tienda Online", icon: MousePointerClick, desc: "Reúne tus productos en un solo espacio digital, diseñada para mostrar con orden y guiar al visitante hacia la compra que lo convierte en cliente." },
           ].map((card, i) => (
             <div key={i} className="bg-white p-8 rounded-[32px] text-black flex flex-col h-full relative overflow-hidden group cursor-pointer" onClick={() => onNavigate(card.id)}>
+              <div className="mb-6 text-primary">
+                <card.icon size={40} strokeWidth={1.5} />
+              </div>
               <h3 className="text-2xl font-black mb-4">{card.title}</h3>
               <p className="text-gray-600 text-sm leading-relaxed mb-8 flex-1">{card.desc}</p>
               <button className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest group-hover:text-primary transition-colors">
@@ -182,7 +187,7 @@ const HomeSection = ({ onNavigate }: HomeSectionProps) => (
           <h2 className="text-3xl font-black">Plataformas Online</h2>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
           {[
             { title: "Plataforma Mayorista", desc: "Acoplado a tu tienda Online permite que gestiones clientes, precios, descuentos y productos al por mayor y al por menor." },
             { title: "E-Learning", desc: "Permite que gestiones cursos, alumnos, evaluaciones y contenidos digitales, tanto en formación individual como en programas grupales." },
@@ -193,6 +198,119 @@ const HomeSection = ({ onNavigate }: HomeSectionProps) => (
               <h3 className="text-2xl font-black mb-4">{card.title}</h3>
               <p className="text-white/80 text-sm leading-relaxed mb-8 flex-1">{card.desc}</p>
               <div className="absolute bottom-0 right-0 w-24 h-24 bg-black/10 rounded-tl-[64px]"></div>
+            </div>
+          ))}
+        </div>
+
+        {/* Feature List Section (Image 2) */}
+        <div className="grid lg:grid-cols-2 gap-16 items-center py-24 border-t border-white/5">
+          <div className="relative">
+             <div className="bg-white/5 rounded-3xl border border-white/10 p-4 aspect-[4/3] flex items-center justify-center overflow-hidden">
+                <img 
+                  src="/imagenes/casos de exito/aluvalle-case.webp" 
+                  alt="Laptop Mockup" 
+                  className="w-full h-full object-cover rounded-xl opacity-80"
+                />
+             </div>
+             <div className="absolute -bottom-6 -left-6 bg-primary p-4 rounded-2xl shadow-2xl hidden md:block">
+               <Smartphone className="text-white" size={32} />
+             </div>
+          </div>
+          <div>
+            <span className="text-primary font-bold uppercase tracking-widest text-xs mb-4 block">1 EN TODOS LOS PLANES</span>
+            <h2 className="text-4xl md:text-5xl font-black mb-8 leading-[1.1]">
+              ¿Qué tendrá tu próximo <span className="text-primary">sitio web?</span>
+            </h2>
+            <p className="text-gray-400 mb-8 text-sm">
+              En seogrowthers.com simplificamos la forma de desarrollar sitios. Nos encargamos de todo para que nos des tu idea y nosotros te entreguemos el producto final.
+            </p>
+            <div className="space-y-4">
+              {[
+                { title: "Diseño", desc: "Todos nuestros sitios web 100% a medida" },
+                { title: "Dominio", desc: "Incluye registro de dominio bonificado" },
+                { title: "Hosting", desc: "Tu sitio web alojado en servidores de primer nivel bonificado" },
+                { title: "Soporte", desc: "Brindamos soporte para que saques el máximo de tu web" },
+                { title: "Pago único", desc: "Sin suscripciones, sin ataduras" },
+                { title: "Autoadministración", desc: "Podés editar todo el contenido" },
+                { title: "Whatsapp", desc: "Botón flotante de Whatsapp" },
+              ].map((f, i) => (
+                <div key={i} className="flex items-center gap-3">
+                  <CheckCircle2 size={18} className="text-primary shrink-0" />
+                  <span className="text-sm font-bold text-white">{f.title}:</span>
+                  <span className="text-sm text-gray-400">{f.desc}</span>
+                </div>
+              ))}
+            </div>
+            <button className="mt-10 bg-primary hover:bg-cyan-700 text-white px-8 py-4 rounded-xl font-bold flex items-center gap-3 transition-all group">
+              <MessageCircle size={20} /> Saber más
+            </button>
+          </div>
+        </div>
+
+        {/* Tools Row */}
+        <div className="flex flex-wrap justify-center items-center gap-10 py-12 opacity-40 grayscale hover:grayscale-0 transition-all">
+          {['WordPress', 'WooCommerce', 'Elementor', 'HTML5', 'PHP', 'JavaScript', 'Meta', 'Google Ads', 'Illustrator', 'Photoshop'].map((tool, i) => (
+            <span key={i} className="text-xs font-black tracking-widest uppercase text-white">{tool}</span>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Pricing Section (Image 3) */}
+    <section className="py-24 px-[8%] bg-white/2">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-20">
+          <span className="text-primary font-bold uppercase tracking-widest text-xs mb-4 block">1 PRECIOS</span>
+          <h2 className="text-4xl md:text-6xl font-black leading-tight text-white">
+            Diseño web a <span className="text-primary">precios competitivos</span>
+          </h2>
+          <p className="text-gray-400 mt-4">Diseño web a medida sin pagar demás, sin sorpresas y a precios competitivos.</p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {[
+            { 
+              title: "Landing Page One Page", 
+              price: "299.990", 
+              desc: "Diseño ideal para comenzar en Internet o promocionar tu negocio.",
+              features: ["Diseño profesional", "Diseño en 1 página", "5 secciones internas", "Hosting y Dominio por 1 año", "Certificado SSL incluido", "2 Cuentas de correo electrónico"]
+            },
+            { 
+              title: "Sitio Corporativo", 
+              price: "420.000", 
+              desc: "Destacá tus servicios o productos con una solución completa.",
+              features: ["Diseño profesional", "Diseño en 5 páginas", "Hosting y Dominio por 1 año", "Certificado SSL incluido", "5 Cuentas de correo electrónico", "Blog"]
+            },
+            { 
+              title: "Tienda Online", 
+              price: "560.000", 
+              desc: "Destacá tus servicios o productos con una solución completa.",
+              features: ["Diseño profesional", "Diseño en 5 páginas", "Hosting y Dominio por 1 año", "Certificado SSL incluido", "5 Cuentas de correo electrónico", "Blog"]
+            }
+          ].map((plan, i) => (
+            <div key={i} className="bg-white p-10 rounded-[40px] text-black flex flex-col group hover:scale-[1.02] transition-all border border-transparent hover:border-primary/20">
+              <div className="mb-8 w-16 h-16 bg-black rounded-2xl flex items-center justify-center text-white">
+                 {i === 0 ? <Layout size={32} /> : i === 1 ? <Globe size={32} /> : <MousePointerClick size={32} />}
+              </div>
+              <h3 className="text-2xl font-black mb-2">{plan.title}</h3>
+              <div className="mb-6">
+                <span className="text-4xl font-black">$ {plan.price}</span>
+                <span className="text-gray-400 text-sm ml-2 font-bold uppercase tracking-widest">ARS</span>
+              </div>
+              <p className="text-gray-500 text-sm leading-relaxed mb-8 flex-1">{plan.desc}</p>
+              
+              <div className="space-y-4 mb-10">
+                {plan.features.map((f, idx) => (
+                  <div key={idx} className="flex items-center gap-3">
+                    <CheckCircle2 size={16} className="text-primary shrink-0" />
+                    <span className="text-sm font-medium text-gray-700">{f}</span>
+                  </div>
+                ))}
+              </div>
+
+              <button className="w-full bg-primary hover:bg-cyan-700 text-white py-4 rounded-2xl font-bold flex items-center justify-center gap-2 transition-all shadow-xl shadow-cyan-900/20">
+                <MessageCircle size={18} /> ¡Empezá ya mismo!
+              </button>
             </div>
           ))}
         </div>
