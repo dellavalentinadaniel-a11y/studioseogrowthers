@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import Navbar, { PageId } from './components/Navbar';
 import HomeSection from './components/HomeSection';
+import LandingPageSection from './components/LandingPageSection';
 import SuccessCaseAluvalle from './components/SuccessCaseAluvalle';
 import PlanDetailLayout from './components/PlanDetailLayout';
 import Footer from './components/Footer';
@@ -43,23 +44,11 @@ export default function App() {
           {currentPage === 'landing' && (
             <motion.div 
               key="landing"
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
             >
-              <PlanDetailLayout 
-                badge="Página de Venta"
-                title="Landing Page High-Conversion."
-                desc="Estructuradas psicológicamente para transformar clics en clientes. El activo ideal para tus campañas de pauta digital."
-                imageLabel="PREVIEW LANDING"
-                onCtaClick={() => window.open(ctaLink, "_blank")}
-                features={[
-                  { title: "Estructura Persuasiva", desc: "Uso de gatillos mentales y jerarquía visual para el cierre de leads." },
-                  { title: "Mobile Optimized", desc: "Velocidad de carga extrema y diseño adaptado al comportamiento móvil." },
-                  { title: "WhatsApp Directo", desc: "Integración de chat para atención inmediata y aumento de ROI." },
-                  { title: "Tracking Avanzado", desc: "Configuración de píxeles y eventos para medir cada centavo invertido." },
-                ]}
-              />
+              <LandingPageSection />
             </motion.div>
           )}
 
