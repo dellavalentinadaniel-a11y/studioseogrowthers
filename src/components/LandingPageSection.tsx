@@ -250,7 +250,7 @@ const LandingPageSection = () => {
                   <h5 className="font-bold">Mauro Bentancourt</h5>
                   <span className="text-xs text-gray-400">08/10/2025</span>
                 </div>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_\"G\"_logo.svg" alt="Google" className="w-5 h-5 ml-auto" />
+                <img src='https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_"G"_logo.svg' alt="Google" className="w-5 h-5 ml-auto" />
               </div>
               <div className="flex gap-1 text-yellow-400 mb-4">
                 {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="currentColor" />)}
