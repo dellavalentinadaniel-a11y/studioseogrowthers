@@ -259,10 +259,16 @@ const LandingPageSection = () => {
                 "Excelente servicio muy profesional. Super recomendado!"
               </p>
               <div className="flex gap-4">
-                <button className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:bg-white transition-all">
+                <button 
+                  aria-label="Testimonio anterior"
+                  className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:bg-white transition-all"
+                >
                   <ArrowRight size={18} className="rotate-180" />
                 </button>
-                <button className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:bg-white transition-all">
+                <button 
+                  aria-label="Siguiente testimonio"
+                  className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:bg-white transition-all"
+                >
                   <ArrowRight size={18} />
                 </button>
               </div>
