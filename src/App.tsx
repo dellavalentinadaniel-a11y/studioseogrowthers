@@ -4,8 +4,10 @@ import Navbar, { PageId } from './components/Navbar';
 import HomeSection from './components/HomeSection';
 import LandingPageSection from './components/LandingPageSection';
 import SuccessCaseAluvalle from './components/SuccessCaseAluvalle';
-import PlanDetailLayout from './components/PlanDetailLayout';
+import CorporatePageSection from './components/CorporatePageSection';
+import EcommercePageSection from './components/EcommercePageSection';
 import Footer from './components/Footer';
+import CookieBanner from './components/layout/CookieBanner';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<PageId>('home');
@@ -55,47 +57,22 @@ export default function App() {
           {currentPage === 'corporativa' && (
             <motion.div 
               key="corporativa"
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
             >
-              <PlanDetailLayout 
-                imageSide="left"
-                badge="Presencia Institucional"
-                title="Web Corporativa de Autoridad."
-                desc="El ecosistema digital de tu empresa. Robustez técnica y estética premium para marcas que lideran su sector."
-                imageLabel="PREVIEW CORPORATIVA"
-                onCtaClick={() => window.open(ctaLink, "_blank")}
-                features={[
-                  { title: "Secciones de Valor", desc: "Inicio, Servicios, Nosotros, Blog y Contacto con diseño coherente." },
-                  { title: "SEO On-Page", desc: "Arquitectura pensada para que Google indexe tu contenido rápidamente." },
-                  { title: "Blog Dinámico", desc: "Sistema autogestionable para educar a tu audiencia y atraer tráfico." },
-                  { title: "Escalabilidad", desc: "Preparada para crecer a medida que tu negocio suma nuevos servicios." },
-                ]}
-              />
+              <CorporatePageSection />
             </motion.div>
           )}
 
           {currentPage === 'ecommerce' && (
             <motion.div 
               key="ecommerce"
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
             >
-              <PlanDetailLayout 
-                badge="Ventas Online"
-                title="E-Commerce Totalmente Automatizado."
-                desc="Escalá tu facturación vendiendo a todo el país. Logística, pagos y stock sincronizados en un solo lugar."
-                imageLabel="PREVIEW E-COMMERCE"
-                onCtaClick={() => window.open(ctaLink, "_blank")}
-                features={[
-                  { title: "Checkout Fluido", desc: "Integración nativa con Mercado Pago para cobros en cuotas y tarjetas." },
-                  { title: "Gestión de Stock", desc: "Panel administrativo simple para controlar inventario en tiempo real." },
-                  { title: "Logística Inteligente", desc: "Integración con correos y apps de envío para envíos automáticos." },
-                  { title: "Dashboard de Ventas", desc: "Análisis detallado de pedidos, tickets promedio y clientes recurrentes." },
-                ]}
-              />
+              <EcommercePageSection />
             </motion.div>
           )}
 
@@ -112,7 +89,8 @@ export default function App() {
         </AnimatePresence>
       </main>
 
-      <Footer />
+      <Footer onNavigate={navigateTo} />
+      <CookieBanner onNavigate={navigateTo} />
     </div>
   );
 }

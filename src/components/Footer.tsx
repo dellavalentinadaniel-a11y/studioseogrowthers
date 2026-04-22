@@ -1,83 +1,148 @@
+
 import React from 'react';
-import { ArrowRight, MessageCircle } from 'lucide-react';
-import Badge from './Badge';
+import { Twitter, Linkedin, Instagram, Youtube } from 'lucide-react';
+import LogoComponent from './shared/LogoComponent';
 
-const Footer = () => (
-  <footer className="relative z-10 px-[8%] py-24 border-t border-white/5 backdrop-blur-md bg-black/40">
-    {/* Main Footer CTA */}
-    <div className="mb-24 text-center md:text-left flex flex-col lg:flex-row items-center justify-between gap-12 bg-white/5 p-10 md:p-20 rounded-[48px] border border-white/10 backdrop-blur-2xl relative overflow-hidden group">
-      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 blur-[100px] pointer-events-none"></div>
-      <div className="relative z-10 max-w-2xl">
-        <Badge>Último paso</Badge>
-        <h2 className="text-5xl md:text-7xl font-black mb-8 leading-[1] text-white">
-          ¿Listo para <span className="text-primary">despegar?</span>
-        </h2>
-        <p className="text-xl text-gray-400 mb-0 leading-relaxed">
-          Agendá una breve reunión para que analicemos tu proyecto y te enviemos un presupuesto a medida. 
-          <span className="text-white block mt-4 font-bold">Sin vueltas, directo al crecimiento.</span>
-        </p>
-      </div>
-      
-      <div className="relative z-10 flex flex-col sm:flex-row gap-6 w-full lg:w-auto">
-        <a 
-          href="https://wa.me/tu-numero" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="bg-primary hover:bg-cyan-700 text-white px-10 py-6 rounded-3xl font-black text-xl flex items-center justify-center gap-4 transition-all shadow-2xl shadow-red-900/40 active:scale-95"
-        >
-          <MessageCircle size={28} />
-          WhatsApp
-        </a>
-        <button className="bg-white/5 hover:bg-white/10 text-white px-10 py-6 rounded-3xl font-black text-xl border border-white/10 transition-all flex items-center justify-center gap-4 active:scale-95">
-          Ver Portfolio
-          <ArrowRight size={28} />
-        </button>
-      </div>
-    </div>
+interface FooterProps {
+    onNavigate?: (page: any) => void;
+}
 
-    {/* Links Footer */}
-    <div className="grid md:grid-cols-4 gap-12 pb-12 border-b border-white/5">
-      <div className="col-span-2">
-        <a href="https://seogrowthers.com/" className="mb-6 block group">
-          <img 
-            src="/imagenes/logo/logo.png" 
-            alt="SEO Growthers Logo" 
-            className="h-12 w-auto object-contain transition-transform group-hover:scale-105"
-          />
-        </a>
-        <p className="text-gray-500 max-w-sm text-sm leading-relaxed">
-          Estudio de diseño y desarrollo web especializado en conversión y crecimiento digital. 
-          Ayudamos a marcas y profesionales a escalar mediante tecnología y estrategia.
-        </p>
-      </div>
-      <div>
-        <h4 className="font-bold text-white mb-6 uppercase tracking-widest text-xs">Servicios</h4>
-        <ul className="space-y-4 text-sm text-gray-500 font-medium">
-          <li className="hover:text-primary transition-colors cursor-pointer">Landing Pages</li>
-          <li className="hover:text-primary transition-colors cursor-pointer">Webs Corporativas</li>
-          <li className="hover:text-primary transition-colors cursor-pointer">E-Commerce</li>
-          <li className="hover:text-primary transition-colors cursor-pointer">Plataformas</li>
-        </ul>
-      </div>
-      <div>
-        <h4 className="font-bold text-white mb-6 uppercase tracking-widest text-xs">Contacto</h4>
-        <ul className="space-y-4 text-sm text-gray-500 font-medium">
-          <li className="hover:text-primary transition-colors cursor-pointer">WhatsApp</li>
-          <li className="hover:text-primary transition-colors cursor-pointer">Email</li>
-          <li className="hover:text-primary transition-colors cursor-pointer">Instagram</li>
-          <li className="hover:text-primary transition-colors cursor-pointer">LinkedIn</li>
-        </ul>
-      </div>
-    </div>
+const Footer = ({ onNavigate }: FooterProps) => {
 
-    <div className="pt-12 flex flex-col md:flex-row justify-between items-center gap-6 text-gray-600 text-xs font-bold uppercase tracking-widest">
-      <div>© {new Date().getFullYear()} SEOGROWTHERS.COM - TODOS LOS DERECHOS RESERVADOS.</div>
-      <div className="flex gap-8">
-        <span className="hover:text-white transition-colors cursor-pointer">Privacidad</span>
-        <span className="hover:text-white transition-colors cursor-pointer">Términos</span>
-      </div>
-    </div>
-  </footer>
-);
+    const handleFeatureNotImplemented = () => {
+        alert("Esta función no está implementada todavía — ¡pero no te preocupes! ¡Puedes solicitarla pronto! 🚀");
+    };
+
+    const handleLinkClick = (e: React.MouseEvent, href: string) => {
+        e.preventDefault();
+        if (href.startsWith('http')) {
+            window.open(href, '_blank', 'noopener noreferrer');
+        } else if (href === '#') {
+            handleFeatureNotImplemented();
+        } else if (href === '/') {
+            if (onNavigate) onNavigate('home');
+            else window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else if (href.includes('#')) {
+            const id = href.split('#')[1];
+            const targetElement = document.getElementById(id);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                handleFeatureNotImplemented();
+            }
+        } else {
+            // Mapeo de rutas a las secciones/páginas del proyecto actual
+            const pageMap: Record<string, any> = {
+                '/services': 'home', // En este proyecto parece que los servicios están en Home
+                '/landing': 'landing',
+                '/corporativa': 'corporativa',
+                '/ecommerce': 'ecommerce',
+                '/blog': 'home', // No hay página de blog explícita en el destino aún
+                '/contact': 'home',
+                '/privacy-policy': 'home',
+                '/terms-of-service': 'home',
+                '/resources': 'home',
+                '/tools': 'home',
+            };
+            
+            if (onNavigate && pageMap[href]) {
+                onNavigate(pageMap[href]);
+            } else {
+                handleFeatureNotImplemented();
+            }
+        }
+    };
+
+    const footerSections = [
+        {
+            title: 'Enlaces Rápidos',
+            links: [
+                { name: 'Inicio', href: '/' },
+                { name: 'Servicios', href: '/services' },
+                { name: 'Recursos', href: '/resources' },
+                { name: 'Herramientas', href: '/tools' },
+            ],
+        },
+        {
+            title: 'Nosotros',
+            links: [
+                { name: 'Quiénes somos', href: '#' },
+                { name: 'Misión y visión', href: '#' },
+                { name: 'Equipo', href: '#' },
+                { name: 'Blog', href: '/blog' },
+            ],
+        },
+        {
+            title: 'Legal',
+            links: [
+                { name: 'Política de Privacidad', href: '/privacy-policy' },
+                { name: 'Términos de Servicio', href: '/terms-of-service' },
+                { name: 'Contacto', href: '/contact' },
+            ],
+        },
+    ];
+
+    const socialLinks = [
+        { icon: <Twitter size={20} />, name: 'Twitter', href: 'https://x.com/SEOGrowthers' },
+        { icon: <Linkedin size={20} />, name: 'LinkedIn', href: 'https://www.linkedin.com/company/seogrowthers' },
+        { icon: <Instagram size={20} />, name: 'Instagram', href: 'https://www.instagram.com/seogrowthers/' },
+        { icon: <Youtube size={20} />, name: 'YouTube', href: 'https://www.youtube.com/@seogrowthers-s4r' },
+    ];
+
+    return (
+        <footer className="bg-[#0C0D0D] border-t border-white/10 pt-16 pb-8 relative z-10">
+            <div className="container mx-auto px-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                    <div className="lg:col-span-1">
+                        <div className="mb-4">
+                            <LogoComponent size="xl" isLink={true} />
+                        </div>
+                        <p className="text-cyan-400 font-medium mb-2 tracking-wide">Web Development • SEO • Analytics</p>
+                        <p className="text-gray-400">Soluciones creativas que impulsan resultados reales para tu negocio.</p>
+                    </div>
+
+                    {footerSections.map((section) => (
+                        <div key={section.title}>
+                            <p className="font-semibold text-white mb-6 uppercase tracking-wider text-sm">{section.title}</p>
+                            <ul className="space-y-4">
+                                {section.links.map((link) => (
+                                    <li key={link.name}>
+                                        <a
+                                            href={link.href}
+                                            onClick={(e) => handleLinkClick(e, link.href)}
+                                            className="text-gray-400 hover:text-cyan-400 transition-colors duration-300 text-sm"
+                                        >
+                                            {link.name}
+                                        </a>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    ))}
+
+                    <div>
+                        <p className="font-semibold text-white mb-6 uppercase tracking-wider text-sm">Síguenos</p>
+                        <div className="flex space-x-4">
+                            {socialLinks.map((social) => (
+                                <a
+                                    key={social.name}
+                                    href={social.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-gray-400 hover:text-cyan-400 transition-colors duration-300 p-2 bg-white/5 rounded-lg hover:bg-white/10"
+                                >
+                                    {social.icon}
+                                </a>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+                <div className="mt-12 pt-8 border-t border-white/10 text-center text-gray-500 text-xs tracking-widest uppercase">
+                    <p>&copy; {new Date().getFullYear()} SEO Growthers. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </footer>
+    );
+};
 
 export default Footer;
