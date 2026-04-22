@@ -55,6 +55,33 @@ const PortfolioLibrarySection = () => {
       desc: "E-commerce de indumentaria deportiva con filtros avanzados.",
       image: "/imagenes/casos de exito/aluvalle-case.webp",
       tags: ["Tienda Nube", "Custom CSS"]
+    },
+    { 
+      id: 7,
+      category: 'corporativa',
+      title: "Chrons Gaming",
+      desc: "Portal de noticias y comunidad gaming con actualización en tiempo real.",
+      image: "/imagenes/PORTAFOLIO/chronsgaming.png",
+      link: "https://throneandlibertylatam.icu/",
+      tags: ["News Portal", "Gaming", "SEO"]
+    },
+    { 
+      id: 8,
+      category: 'corporativa',
+      title: "Aluvalle SAS",
+      desc: "Sitio corporativo y catálogo para empresa líder en perfiles de aluminio.",
+      image: "/imagenes/PORTAFOLIO/aluvalle.webp",
+      link: "https://www.aluvalle.store/",
+      tags: ["Industrial", "Catalog", "Premium"]
+    },
+    { 
+      id: 9,
+      category: 'corporativa',
+      title: "SEO Growthers Platform",
+      desc: "Ecosistema digital completo: Blog, Comunidad, Herramientas SEO y Servicios profesionales.",
+      image: "/imagenes/PORTAFOLIO/seogrowthers.png",
+      link: "https://seogrowthers.com/",
+      tags: ["Platform", "SEO Tools", "Community"]
     }
   ];
 
@@ -106,7 +133,8 @@ const PortfolioLibrarySection = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.3 }}
-                className="group bg-white/5 border border-white/10 rounded-[32px] overflow-hidden hover:border-primary/50 transition-all"
+                className="group bg-white/5 border border-white/10 rounded-[32px] overflow-hidden hover:border-primary/50 transition-all cursor-pointer"
+                onClick={() => (project as any).link && window.open((project as any).link, '_blank')}
               >
                 <div className="aspect-[4/3] overflow-hidden relative">
                   <img 
@@ -115,8 +143,8 @@ const PortfolioLibrarySection = () => {
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <button className="bg-white text-black px-6 py-3 rounded-xl font-bold flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform">
-                      Ver Ejemplo <ArrowUpRight size={18} />
+                    <button className="bg-white text-black px-6 py-3 rounded-xl font-black flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform shadow-xl">
+                      {(project as any).link ? 'Visitar Sitio' : 'Ver Ejemplo'} <ArrowUpRight size={18} />
                     </button>
                   </div>
                 </div>
@@ -126,7 +154,7 @@ const PortfolioLibrarySection = () => {
                       <span key={tag} className="text-[10px] font-black uppercase tracking-widest text-primary bg-primary/10 px-2 py-1 rounded-md">{tag}</span>
                     ))}
                   </div>
-                  <h3 className="text-2xl font-black mb-3 text-white">{project.title}</h3>
+                  <h3 className="text-2xl font-black mb-3 text-white group-hover:text-primary transition-colors">{project.title}</h3>
                   <p className="text-gray-400 text-sm leading-relaxed mb-6">{project.desc}</p>
                   
                   <div className="flex items-center justify-between pt-6 border-t border-white/5">
@@ -134,7 +162,13 @@ const PortfolioLibrarySection = () => {
                       {project.category === 'landing' ? <Smartphone size={14}/> : project.category === 'ecommerce' ? <Layout size={14}/> : <Globe size={14}/>}
                       {project.category}
                     </span>
-                    <button className="text-primary hover:text-white transition-colors">
+                    <button 
+                        className="text-primary hover:text-white transition-colors"
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            if ((project as any).link) window.open((project as any).link, '_blank');
+                        }}
+                    >
                       <ExternalLink size={20} />
                     </button>
                   </div>
