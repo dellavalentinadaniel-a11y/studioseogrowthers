@@ -97,6 +97,73 @@ const LandingPageSection = () => {
         </div>
       </section>
 
+      {/* Case Study Section - New */}
+      <section className="py-24 px-[8%] bg-dark text-white overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+            <div className="max-w-2xl">
+              <Badge>Caso de Éxito</Badge>
+              <h2 className="text-4xl md:text-6xl font-black mt-6 leading-tight">
+                Transformación Digital: <span className="text-primary">Proyecto Landing</span>
+              </h2>
+            </div>
+            <p className="text-gray-400 text-sm max-w-sm mb-4 leading-relaxed">
+              Analizamos cómo implementamos una estrategia de conversión real para uno de nuestros clientes más recientes.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-20">
+            {/* Main large image */}
+            <div className="md:col-span-8 group relative overflow-hidden rounded-[40px] border border-white/10 shadow-2xl">
+              <img 
+                src="/imagenes/Landing Page/Captura de pantalla 2026-04-21 210336.png" 
+                alt="Proyecto Destacado" 
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"></div>
+              <div className="absolute bottom-10 left-10">
+                <span className="bg-primary text-white px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest mb-3 inline-block">Vista Desktop</span>
+                <h3 className="text-3xl font-black">Estructura High-Conversion</h3>
+              </div>
+            </div>
+
+            {/* Side column with 2 images */}
+            <div className="md:col-span-4 flex flex-col gap-8">
+              <div className="flex-1 group relative overflow-hidden rounded-[40px] border border-white/10">
+                <img 
+                  src="/imagenes/Landing Page/Captura de pantalla 2026-04-21 210236.png" 
+                  alt="Detalle 1" 
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+              </div>
+              <div className="flex-1 group relative overflow-hidden rounded-[40px] border border-white/10 bg-primary/20 flex items-center justify-center p-10">
+                <div className="text-center">
+                  <span className="text-5xl font-black text-primary block mb-2">+120%</span>
+                  <p className="text-sm font-bold text-gray-300">Aumento en Conversión</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Grid of smaller detail images */}
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              "/imagenes/Landing Page/Captura de pantalla 2026-04-21 210307.png",
+              "/imagenes/Landing Page/Captura de pantalla 2026-04-21 210352.png",
+              "/imagenes/Landing Page/Captura de pantalla 2026-04-21 210403.png"
+            ].map((img, i) => (
+              <div key={i} className="group relative overflow-hidden rounded-[30px] aspect-video border border-white/10 bg-white/5 p-4">
+                <img 
+                  src={img} 
+                  alt={`Detalle ${i + 2}`} 
+                  className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Potent Features - Image 3 */}
       <section className="py-24 px-[8%] bg-white text-black border-t border-gray-100">
         <div className="max-w-7xl mx-auto">
