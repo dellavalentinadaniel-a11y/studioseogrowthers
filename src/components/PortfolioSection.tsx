@@ -21,17 +21,17 @@ const projects: Project[] = [
   {
     title: "Eco-Lodge Patagonia",
     category: "Landing Page / Reservas",
-    image: "/imagenes/logo/Gemini_Generated_Image_loyalloyalloyall.png",
+    image: "/imagenes/home/portfolio_main.png",
   },
   {
     title: "Marketplace Global",
     category: "E-Commerce",
-    image: "/imagenes/logo/Gemini_Generated_Image_whvzdhwhvzdhwhvz.png",
+    image: "/imagenes/home/marketing_main.png",
   },
   {
     title: "Inmobiliaria Premium",
     category: "Plataforma de Gestión",
-    image: "/imagenes/logo/Gemini_Generated_Image_wvnwh1wvnwh1wvnw.png",
+    image: "/imagenes/home/automation_main.png",
   }
 ];
 

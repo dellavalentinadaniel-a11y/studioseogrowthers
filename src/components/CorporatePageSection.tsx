@@ -86,7 +86,7 @@ const CorporatePageSection = () => {
           <div className="relative">
             <div className="bg-primary/5 rounded-[40px] p-8">
               <img 
-                src="/imagenes/casos de exito/aluvalle-screens.webp" 
+                src="/imagenes/home/marketing_main.png" 
                 alt="Web Corporativa" 
                 className="w-full h-auto rounded-3xl shadow-2xl"
               />

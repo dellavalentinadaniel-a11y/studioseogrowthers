@@ -86,7 +86,7 @@ const EcommercePageSection = () => {
           <div className="relative">
             <div className="bg-primary/5 rounded-[40px] p-8">
               <img 
-                src="/imagenes/logo/Gemini_Generated_Image_loyalloyalloyall.png" 
+                src="/imagenes/home/portfolio_main.png" 
                 alt="Tienda Online" 
                 className="w-full h-auto rounded-3xl shadow-2xl"
               />

@@ -25,7 +25,17 @@ const HomeSection = ({ onNavigate }: HomeSectionProps) => (
   <>
     {/* Hero Section */}
     <section className="pt-32 pb-16 px-[8%] relative overflow-hidden">
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+      {/* Dynamic Background */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="/imagenes/home/hero_bg.png" 
+          alt="Hero Background" 
+          className="w-full h-full object-cover opacity-40 mix-blend-overlay"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center relative z-10">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
@@ -61,7 +71,7 @@ const HomeSection = ({ onNavigate }: HomeSectionProps) => (
           <div className="flex flex-col sm:flex-row items-center gap-6">
             <button 
               onClick={() => onNavigate('landing')}
-              className="bg-primary hover:bg-cyan-700 text-white px-8 py-4 rounded-xl font-bold flex items-center gap-3 transition-all group w-full sm:w-auto justify-center"
+              className="bg-primary hover:bg-cyan-700 text-white px-8 py-4 rounded-xl font-bold flex items-center gap-3 transition-all group w-full sm:w-auto justify-center shadow-lg shadow-primary/20"
             >
               Nuestros Servicios 
               <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform" />
@@ -92,23 +102,23 @@ const HomeSection = ({ onNavigate }: HomeSectionProps) => (
           className="relative"
         >
           {/* Main Browser Mockup */}
-          <div className="bg-white/5 rounded-2xl border border-white/10 overflow-hidden shadow-2xl relative z-20">
+          <div className="bg-white/5 rounded-2xl border border-white/10 overflow-hidden shadow-2xl relative z-20 backdrop-blur-md">
             <div className="bg-white/10 px-4 py-2 flex items-center gap-2">
               <div className="flex gap-1.5">
-                <div className="w-2.5 h-2.5 rounded-full bg-white/20"></div>
-                <div className="w-2.5 h-2.5 rounded-full bg-white/20"></div>
-                <div className="w-2.5 h-2.5 rounded-full bg-white/20"></div>
+                <div className="w-2.5 h-2.5 rounded-full bg-red-500/50"></div>
+                <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/50"></div>
+                <div className="w-2.5 h-2.5 rounded-full bg-green-500/50"></div>
               </div>
             </div>
             <img 
-              src="/imagenes/casos de exito/aluvalle-case.webp" 
-              alt="Preview Patagonia Wander" 
+              src="/imagenes/home/portfolio_main.png" 
+              alt="Preview Portfolio" 
               className="w-full h-auto"
             />
           </div>
           
           {/* Second Mockup Offset */}
-          <div className="absolute -bottom-12 -right-8 w-2/3 bg-white/5 rounded-2xl border border-white/10 overflow-hidden shadow-2xl z-30 hidden md:block">
+          <div className="absolute -bottom-12 -right-8 w-2/3 bg-white/5 rounded-2xl border border-white/10 overflow-hidden shadow-2xl z-30 hidden md:block backdrop-blur-md">
             <div className="bg-white/10 px-4 py-1.5 flex items-center justify-between">
               <div className="flex gap-1">
                 <div className="w-2 h-2 rounded-full bg-white/20"></div>
@@ -117,8 +127,8 @@ const HomeSection = ({ onNavigate }: HomeSectionProps) => (
               <ArrowRight size={12} className="text-white/20" />
             </div>
             <img 
-              src="/imagenes/casos de exito/aluvalle-screens.webp" 
-              alt="Preview Work" 
+              src="/imagenes/home/web_dev_main.png" 
+              alt="Web Dev Illustration" 
               className="w-full h-auto"
             />
           </div>

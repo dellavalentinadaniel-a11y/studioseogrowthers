@@ -88,7 +88,7 @@ const LandingPageSection = () => {
           <div className="relative">
             <div className="bg-primary/5 rounded-[40px] p-8">
               <img 
-                src="/imagenes/logo/Gemini_Generated_Image_loyalloyalloyall.png" 
+                src="/imagenes/home/web_dev_main.png" 
                 alt="Diseño Landing Page" 
                 className="w-full h-auto rounded-3xl shadow-2xl"
               />
@@ -116,7 +116,7 @@ const LandingPageSection = () => {
             {/* Main large image */}
             <div className="md:col-span-8 group relative overflow-hidden rounded-[40px] border border-white/10 shadow-2xl">
               <img 
-                src="/imagenes/Landing Page/Captura de pantalla 2026-04-21 210336.png" 
+                src="/imagenes/home/portfolio_main.png" 
                 alt="Proyecto Destacado" 
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
@@ -131,7 +131,7 @@ const LandingPageSection = () => {
             <div className="md:col-span-4 flex flex-col gap-8">
               <div className="flex-1 group relative overflow-hidden rounded-[40px] border border-white/10">
                 <img 
-                  src="/imagenes/Landing Page/Captura de pantalla 2026-04-21 210236.png" 
+                  src="/imagenes/home/automation_main.png" 
                   alt="Detalle 1" 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
@@ -148,9 +148,9 @@ const LandingPageSection = () => {
           {/* Grid of smaller detail images */}
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              "/imagenes/Landing Page/Captura de pantalla 2026-04-21 210307.png",
-              "/imagenes/Landing Page/Captura de pantalla 2026-04-21 210352.png",
-              "/imagenes/Landing Page/Captura de pantalla 2026-04-21 210403.png"
+              "/imagenes/home/marketing_main.png",
+              "/imagenes/home/hero_bg.png",
+              "/imagenes/home/web_dev_main.png"
             ].map((img, i) => (
               <div key={i} className="group relative overflow-hidden rounded-[30px] aspect-video border border-white/10 bg-white/5 p-4">
                 <img 
