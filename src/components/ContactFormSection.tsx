@@ -1,105 +1,190 @@
-import React from 'react';
-import { Rocket, Phone, MessageCircle, MapPin, Send, Mail, ChevronDown } from 'lucide-react';
+import React, { useState } from 'react';
+import { Rocket, Phone, MessageCircle, MapPin, Send, Mail, ChevronDown, CheckCircle2, Loader2, AlertCircle } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 
 const ContactFormSection = () => {
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus('loading');
+
+    const formData = new FormData(e.currentTarget);
+    
+    try {
+      // Usamos el endpoint /ajax de FormSubmit para envío asíncrono
+      const response = await fetch("https://formsubmit.co/ajax/seogrowthers@gmail.com", {
+        method: "POST",
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        setStatus('success');
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      console.error("Error enviando el formulario:", error);
+      setStatus('error');
+    }
+  };
+
   return (
     <section className="py-24 px-[8%] max-w-7xl mx-auto min-h-screen flex items-center relative">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 w-full relative z-10">
         
         {/* Left: Form Card */}
-        <div className="lg:col-span-7 bg-[#0B0F17]/80 backdrop-blur-xl border border-white/10 rounded-[40px] p-8 md:p-12 shadow-2xl relative overflow-hidden group">
+        <div className="lg:col-span-7 bg-[#0B0F17]/80 backdrop-blur-xl border border-white/10 rounded-[40px] p-8 md:p-12 shadow-2xl relative overflow-hidden group min-h-[600px] flex flex-col">
           {/* Top Gradient Glow */}
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-purple-500 to-cyan-400 opacity-50"></div>
           
-          <div className="flex items-center gap-4 mb-12">
-            <div className="w-12 h-12 bg-cyan-400/10 rounded-2xl flex items-center justify-center text-cyan-400">
-              <Rocket size={24} />
-            </div>
-            <h2 className="text-3xl font-black text-white tracking-tight">Formulario de Consulta</h2>
-          </div>
-
-          <form action="https://formsubmit.co/seogrowthers@gmail.com" method="POST" className="space-y-8">
-            <input type="hidden" name="_subject" value="Nuevo Presupuesto Web - SEO Growthers" />
-            <input type="hidden" name="_captcha" value="false" />
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="space-y-3">
-                <label className="text-[10px] font-black text-gray-500 tracking-[0.2em] uppercase">IDENTIDAD_ID *</label>
-                <input 
-                  type="text" 
-                  name="nombre" 
-                  required 
-                  placeholder="Nombre completo o alias"
-                  className="w-full bg-black/40 border border-white/5 rounded-2xl py-4 px-6 text-white placeholder:text-gray-700 focus:outline-none focus:border-cyan-400/50 focus:bg-black/60 transition-all"
-                />
-              </div>
-              <div className="space-y-3">
-                <label className="text-[10px] font-black text-gray-500 tracking-[0.2em] uppercase">ENLACE_PROTOCOLO *</label>
-                <input 
-                  type="email" 
-                  name="email" 
-                  required 
-                  placeholder="correo@neuronal.com"
-                  className="w-full bg-black/40 border border-white/5 rounded-2xl py-4 px-6 text-white placeholder:text-gray-700 focus:outline-none focus:border-cyan-400/50 focus:bg-black/60 transition-all"
-                />
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="space-y-3">
-                <label className="text-[10px] font-black text-gray-500 tracking-[0.2em] uppercase">FRECUENCIA_TEL (Opcional)</label>
-                <input 
-                  type="tel" 
-                  name="telefono" 
-                  placeholder="+54 9 2995504783"
-                  className="w-full bg-black/40 border border-white/5 rounded-2xl py-4 px-6 text-white placeholder:text-gray-700 focus:outline-none focus:border-cyan-400/50 focus:bg-black/60 transition-all"
-                />
-              </div>
-              <div className="space-y-3">
-                <label className="text-[10px] font-black text-gray-500 tracking-[0.2em] uppercase">VECTOR_MOTIVO *</label>
-                <div className="relative">
-                  <select 
-                    name="motivo" 
-                    required 
-                    aria-label="Motivo de la consulta"
-                    className="w-full bg-black/40 border border-white/5 rounded-2xl py-4 px-6 text-white appearance-none focus:outline-none focus:border-cyan-400/50 transition-all"
-                  >
-                    <option value="" disabled selected>Selecciona un vector</option>
-                    <option value="desarrollo">Desarrollo Web</option>
-                    <option value="marketing">Marketing Digital</option>
-                    <option value="automatizacion">Automatización / IA</option>
-                    <option value="otros">Otros</option>
-                  </select>
-                  <ChevronDown className="absolute right-6 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none" size={20} />
+          <AnimatePresence mode="wait">
+            {status === 'success' ? (
+              <motion.div 
+                key="success"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 1.1 }}
+                className="flex-1 flex flex-col items-center justify-center text-center space-y-6 py-12"
+              >
+                <div className="w-24 h-24 bg-green-500/10 rounded-full flex items-center justify-center text-green-500 mb-4">
+                  <CheckCircle2 size={64} />
                 </div>
-              </div>
-            </div>
+                <h2 className="text-4xl font-black text-white">¡Intento Transmitido!</h2>
+                <p className="text-gray-400 text-lg max-w-md mx-auto">
+                  Hemos recibido tu consulta correctamente. Un estratega de <span className="text-cyan-400">SEO Growthers</span> se pondrá en contacto contigo a la brevedad.
+                </p>
+                <button 
+                  onClick={() => setStatus('idle')}
+                  className="mt-8 text-cyan-400 font-bold hover:underline"
+                >
+                  Enviar otro mensaje
+                </button>
+              </motion.div>
+            ) : (
+              <motion.div 
+                key="form"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="flex-1 flex flex-col"
+              >
+                <div className="flex items-center gap-4 mb-12">
+                  <div className="w-12 h-12 bg-cyan-400/10 rounded-2xl flex items-center justify-center text-cyan-400">
+                    <Rocket size={24} />
+                  </div>
+                  <h2 className="text-3xl font-black text-white tracking-tight">Formulario de Consulta</h2>
+                </div>
 
-            <div className="space-y-3">
-              <label className="text-[10px] font-black text-gray-500 tracking-[0.2em] uppercase">CARGA_MENSAJE *</label>
-              <textarea 
-                name="mensaje" 
-                required 
-                rows={5} 
-                placeholder="Escribe tu consulta aquí..."
-                className="w-full bg-black/40 border border-white/5 rounded-3xl py-4 px-6 text-white placeholder:text-gray-700 focus:outline-none focus:border-cyan-400/50 focus:bg-black/60 transition-all resize-none"
-              ></textarea>
-            </div>
+                <form onSubmit={handleSubmit} className="space-y-8 flex-1">
+                  <input type="hidden" name="_subject" value="Nuevo Presupuesto Web - SEO Growthers" />
+                  <input type="hidden" name="_captcha" value="false" />
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="space-y-3">
+                      <label className="text-[10px] font-black text-gray-500 tracking-[0.2em] uppercase">IDENTIDAD_ID *</label>
+                      <input 
+                        type="text" 
+                        name="nombre" 
+                        required 
+                        disabled={status === 'loading'}
+                        placeholder="Nombre completo o alias"
+                        className="w-full bg-black/40 border border-white/5 rounded-2xl py-4 px-6 text-white placeholder:text-gray-700 focus:outline-none focus:border-cyan-400/50 focus:bg-black/60 transition-all disabled:opacity-50"
+                      />
+                    </div>
+                    <div className="space-y-3">
+                      <label className="text-[10px] font-black text-gray-500 tracking-[0.2em] uppercase">ENLACE_PROTOCOLO *</label>
+                      <input 
+                        type="email" 
+                        name="email" 
+                        required 
+                        disabled={status === 'loading'}
+                        placeholder="correo@neuronal.com"
+                        className="w-full bg-black/40 border border-white/5 rounded-2xl py-4 px-6 text-white placeholder:text-gray-700 focus:outline-none focus:border-cyan-400/50 focus:bg-black/60 transition-all disabled:opacity-50"
+                      />
+                    </div>
+                  </div>
 
-            <div className="flex items-center gap-3">
-              <input type="checkbox" required id="privacy" className="w-5 h-5 rounded-md bg-black/40 border-white/10 text-cyan-400 focus:ring-0" />
-              <label htmlFor="privacy" className="text-xs text-gray-500">
-                Acepto los <span className="text-cyan-400 cursor-pointer hover:underline">términos de servicio</span> y la <span className="text-cyan-400 cursor-pointer hover:underline">política de privacidad</span>.
-              </label>
-            </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="space-y-3">
+                      <label className="text-[10px] font-black text-gray-500 tracking-[0.2em] uppercase">FRECUENCIA_TEL (Opcional)</label>
+                      <input 
+                        type="tel" 
+                        name="telefono" 
+                        disabled={status === 'loading'}
+                        placeholder="+54 9 2995504783"
+                        className="w-full bg-black/40 border border-white/5 rounded-2xl py-4 px-6 text-white placeholder:text-gray-700 focus:outline-none focus:border-cyan-400/50 focus:bg-black/60 transition-all disabled:opacity-50"
+                      />
+                    </div>
+                    <div className="space-y-3">
+                      <label className="text-[10px] font-black text-gray-500 tracking-[0.2em] uppercase">VECTOR_MOTIVO *</label>
+                      <div className="relative">
+                        <select 
+                          name="motivo" 
+                          required 
+                          disabled={status === 'loading'}
+                          aria-label="Motivo de la consulta"
+                          className="w-full bg-black/40 border border-white/5 rounded-2xl py-4 px-6 text-white appearance-none focus:outline-none focus:border-cyan-400/50 transition-all disabled:opacity-50"
+                        >
+                          <option value="" disabled selected>Selecciona un vector</option>
+                          <option value="desarrollo">Desarrollo Web</option>
+                          <option value="marketing">Marketing Digital</option>
+                          <option value="automatizacion">Automatización / IA</option>
+                          <option value="otros">Otros</option>
+                        </select>
+                        <ChevronDown className="absolute right-6 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none" size={20} />
+                      </div>
+                    </div>
+                  </div>
 
-            <button 
-              type="submit" 
-              className="w-full md:w-auto bg-cyan-400 hover:bg-cyan-300 text-black font-black py-5 px-12 rounded-2xl transition-all flex items-center justify-center gap-3 group/btn uppercase tracking-widest text-sm shadow-[0_0_30px_rgba(34,211,238,0.2)]"
-            >
-              TRANSMITIR INTENTO <Send size={18} className="group-hover:translate-x-1 transition-transform" />
-            </button>
-          </form>
+                  <div className="space-y-3">
+                    <label className="text-[10px] font-black text-gray-500 tracking-[0.2em] uppercase">CARGA_MENSAJE *</label>
+                    <textarea 
+                      name="mensaje" 
+                      required 
+                      rows={5} 
+                      disabled={status === 'loading'}
+                      placeholder="Escribe tu consulta aquí..."
+                      className="w-full bg-black/40 border border-white/5 rounded-3xl py-4 px-6 text-white placeholder:text-gray-700 focus:outline-none focus:border-cyan-400/50 focus:bg-black/60 transition-all resize-none disabled:opacity-50"
+                    ></textarea>
+                  </div>
+
+                  <div className="flex items-center gap-3">
+                    <input type="checkbox" required id="privacy" className="w-5 h-5 rounded-md bg-black/40 border-white/10 text-cyan-400 focus:ring-0" />
+                    <label htmlFor="privacy" className="text-xs text-gray-500">
+                      Acepto los <span className="text-cyan-400 cursor-pointer hover:underline">términos de servicio</span> y la <span className="text-cyan-400 cursor-pointer hover:underline">política de privacidad</span>.
+                    </label>
+                  </div>
+
+                  {status === 'error' && (
+                    <motion.div 
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="flex items-center gap-2 text-red-400 text-sm bg-red-400/10 p-4 rounded-xl border border-red-400/20"
+                    >
+                      <AlertCircle size={18} />
+                      Hubo un error al enviar. Por favor, intenta de nuevo o contáctanos por WhatsApp.
+                    </motion.div>
+                  )}
+
+                  <button 
+                    type="submit" 
+                    disabled={status === 'loading'}
+                    className="w-full md:w-auto bg-cyan-400 hover:bg-cyan-300 disabled:bg-gray-700 text-black font-black py-5 px-12 rounded-2xl transition-all flex items-center justify-center gap-3 group/btn uppercase tracking-widest text-sm shadow-[0_0_30px_rgba(34,211,238,0.2)]"
+                  >
+                    {status === 'loading' ? (
+                      <>Transmitiendo... <Loader2 size={18} className="animate-spin" /></>
+                    ) : (
+                      <>TRANSMITIR INTENTO <Send size={18} className="group-hover:translate-x-1 transition-transform" /></>
+                    )}
+                  </button>
+                </form>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
 
         {/* Right: Info Column */}
