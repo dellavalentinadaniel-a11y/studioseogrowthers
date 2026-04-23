@@ -4,6 +4,7 @@ import Navbar, { PageId } from './components/Navbar';
 import HomeSection from './components/HomeSection';
 import LandingPageSection from './components/LandingPageSection';
 import SuccessCaseAluvalle from './components/SuccessCaseAluvalle';
+import SuccessCaseInmoFuture from './components/SuccessCaseInmoFuture';
 import CorporatePageSection from './components/CorporatePageSection';
 import EcommercePageSection from './components/EcommercePageSection';
 import MarketingPageSection from './components/MarketingPageSection';
@@ -242,6 +243,17 @@ export default function App() {
               exit={{ opacity: 0, scale: 1.05 }}
             >
               <SuccessCaseAluvalle onBack={() => navigateTo('home')} />
+            </motion.div>
+          )}
+
+          {currentPage === 'inmofuture' && (
+            <motion.div 
+              key="inmofuture"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 1.05 }}
+            >
+              <SuccessCaseInmoFuture onBack={() => navigateTo('home')} />
             </motion.div>
           )}
 

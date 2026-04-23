@@ -13,7 +13,7 @@ const PortfolioLibrarySection = () => {
       category: 'landing',
       title: "NutriLife Landing",
       desc: "Página de aterrizaje optimizada para conversión de suplementos naturales.",
-      image: "/imagenes/casos de exito/aluvalle-screens.webp", // Reutilizando assets existentes
+      image: "/imagenes/PORTAFOLIO/nutrilife.png",
       tags: ["React", "Tailwind", "SEO"]
     },
     { 
@@ -21,7 +21,7 @@ const PortfolioLibrarySection = () => {
       category: 'corporativa',
       title: "Constructora Delta",
       desc: "Sitio institucional robusto con catálogo de obras y sección de servicios.",
-      image: "/imagenes/casos de exito/aluvalle-case.webp",
+      image: "/imagenes/PORTAFOLIO/delta.png",
       tags: ["Wordpress", "Custom UI"]
     },
     { 
@@ -29,7 +29,7 @@ const PortfolioLibrarySection = () => {
       category: 'ecommerce',
       title: "Glow Beauty Shop",
       desc: "Tienda online completa con pasarela de pagos y gestión de stock.",
-      image: "/imagenes/casos de exito/aluvalle-screens.webp",
+      image: "/imagenes/PORTAFOLIO/glow.png",
       tags: ["WooCommerce", "MercadoPago"]
     },
     { 
@@ -37,7 +37,7 @@ const PortfolioLibrarySection = () => {
       category: 'landing',
       title: "SaaS Analytics One",
       desc: "One page para plataforma de software con planes de precios dinámicos.",
-      image: "/imagenes/casos de exito/aluvalle-case.webp",
+      image: "/imagenes/PORTAFOLIO/analytics.png",
       tags: ["Next.js", "Framer Motion"]
     },
     { 
@@ -45,7 +45,7 @@ const PortfolioLibrarySection = () => {
       category: 'corporativa',
       title: "Estudio Contable Pérez",
       desc: "Web profesional para firma de servicios financieros.",
-      image: "/imagenes/casos de exito/aluvalle-screens.webp",
+      image: "/imagenes/PORTAFOLIO/estudio_perez.png",
       tags: ["Minimalist", "Fast Load"]
     },
     { 
@@ -53,7 +53,7 @@ const PortfolioLibrarySection = () => {
       category: 'ecommerce',
       title: "Urban Fit Wear",
       desc: "E-commerce de indumentaria deportiva con filtros avanzados.",
-      image: "/imagenes/casos de exito/aluvalle-case.webp",
+      image: "/imagenes/PORTAFOLIO/urban_fit.png",
       tags: ["Tienda Nube", "Custom CSS"]
     },
     { 
@@ -82,6 +82,15 @@ const PortfolioLibrarySection = () => {
       image: "/imagenes/PORTAFOLIO/seogrowthers.png",
       link: "https://seogrowthers.com/",
       tags: ["Platform", "SEO Tools", "Community"]
+    },
+    { 
+      id: 10,
+      category: 'corporativa',
+      title: "InmoFuture Platform",
+      desc: "Plataforma inmobiliaria premium con gestión de propiedades y CRM integrado.",
+      image: "/imagenes/PORTAFOLIO/inmofuture.png",
+      link: "https://inmobiliaria-plantilla.vercel.app/",
+      tags: ["Real Estate", "React", "Management"]
     }
   ];
 
@@ -164,6 +173,8 @@ const PortfolioLibrarySection = () => {
                     </span>
                     <button 
                         className="text-primary hover:text-white transition-colors"
+                        title="Visitar enlace externo"
+                        aria-label={`Visitar sitio web de ${project.title}`}
                         onClick={(e) => {
                             e.stopPropagation();
                             if ((project as any).link) window.open((project as any).link, '_blank');

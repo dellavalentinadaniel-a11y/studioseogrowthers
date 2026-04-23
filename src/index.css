@@ -29,8 +29,10 @@
 
 @layer utilities {
   .text-balance {
-    /* Modern text-wrap for supported browsers */
-    text-wrap: balance;
+    /* Modern text-wrap with fallback check */
+    @supports (text-wrap: balance) {
+      text-wrap: balance;
+    }
   }
   
   .glass-effect {

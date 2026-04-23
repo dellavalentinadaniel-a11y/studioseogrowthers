@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 
 export type CategoryId = 'desarrollo-web' | 'marketing-digital' | 'automatizacion';
-export type PageId = 'home' | 'landing' | 'corporativa' | 'ecommerce' | 'portfolio-library' | 'marketing' | 'seo' | 'sem' | 'social-media' | 'content-marketing' | 'email-marketing' | 'automatizacion' | 'auto-marketing' | 'rpa' | 'no-code' | 'ia-agentica' | 'aluvalle' | 'contacto';
+export type PageId = 'home' | 'landing' | 'corporativa' | 'ecommerce' | 'portfolio-library' | 'marketing' | 'seo' | 'sem' | 'social-media' | 'content-marketing' | 'email-marketing' | 'automatizacion' | 'auto-marketing' | 'rpa' | 'no-code' | 'ia-agentica' | 'aluvalle' | 'inmofuture' | 'contacto';
 
 interface NavbarProps {
   onNavigate: (id: PageId) => void;
@@ -24,6 +24,7 @@ const Navbar = ({ onNavigate, currentPage }: NavbarProps) => {
         { id: 'landing', label: 'Landing Page' },
         { id: 'corporativa', label: 'Sitio Web Corporativo' },
         { id: 'ecommerce', label: 'Tiendas Online' },
+        { id: 'inmofuture', label: 'Caso: InmoFuture' },
         { id: 'portfolio-library', label: 'Portafolio (Ejemplos)' },
       ]
     },

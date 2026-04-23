@@ -9,6 +9,7 @@ interface Project {
   image: string;
   link?: string;
   isFeatured?: boolean;
+  caseId?: string;
 }
 
 const projects: Project[] = [
@@ -16,22 +17,26 @@ const projects: Project[] = [
     title: "Aluvalle - Sistema de Aberturas",
     category: "Sitio Corporativo / Catálogo Técnico",
     image: "/imagenes/casos de exito/aluvalle-case.webp",
-    isFeatured: true
+    isFeatured: true,
+    caseId: 'aluvalle'
   },
   {
     title: "Eco-Lodge Patagonia",
     category: "Landing Page / Reservas",
-    image: "/imagenes/home/portfolio_main.png",
+    image: "/imagenes/PORTAFOLIO/ecolodge.png",
   },
   {
     title: "Marketplace Global",
     category: "E-Commerce",
-    image: "/imagenes/home/marketing_main.png",
+    image: "/imagenes/PORTAFOLIO/marketplace.png",
   },
   {
-    title: "Inmobiliaria Premium",
-    category: "Plataforma de Gestión",
-    image: "/imagenes/home/automation_main.png",
+    title: "InmoFuture - Real Estate Platform",
+    category: "Plataforma de Gestión Inmobiliaria",
+    image: "/imagenes/PORTAFOLIO/inmofuture.png",
+    link: "https://inmobiliaria-plantilla.vercel.app/",
+    isFeatured: true,
+    caseId: 'inmofuture'
   }
 ];
 
@@ -56,7 +61,10 @@ const PortfolioSection = ({ onNavigate }: { onNavigate: (id: any) => void }) => 
             <motion.div
               key={i}
               whileHover={{ y: -10 }}
-              className={`group relative overflow-hidden rounded-[40px] border border-white/5 bg-white/5 backdrop-blur-xl ${
+              onClick={() => project.link && window.open(project.link, '_blank')}
+              className={`group relative overflow-hidden rounded-[40px] border border-white/5 bg-white/5 backdrop-blur-xl transition-all ${
+                project.link ? 'cursor-pointer hover:border-primary/50' : ''
+              } ${
                 project.isFeatured ? 'lg:col-span-2' : ''
               }`}
             >
@@ -83,13 +91,24 @@ const PortfolioSection = ({ onNavigate }: { onNavigate: (id: any) => void }) => 
                   </div>
                 </div>
 
-                {project.isFeatured && (
+                {project.caseId && (
                   <button 
-                    onClick={() => onNavigate('aluvalle')}
+                    onClick={() => onNavigate(project.caseId)}
                     className="mt-6 flex items-center gap-2 text-xs font-black uppercase tracking-widest text-primary group-hover:gap-4 transition-all"
                   >
                     Ver Caso de Éxito <ArrowRight size={16} />
                   </button>
+                )}
+
+                {!project.caseId && project.link && project.isFeatured && (
+                  <a 
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-6 flex items-center gap-2 text-xs font-black uppercase tracking-widest text-primary group-hover:gap-4 transition-all"
+                  >
+                    Visitar Sitio <ArrowRight size={16} />
+                  </a>
                 )}
               </div>
 
