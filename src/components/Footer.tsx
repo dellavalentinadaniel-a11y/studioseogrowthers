@@ -38,7 +38,7 @@ const Footer = ({ onNavigate }: FooterProps) => {
                 '/corporativa': 'corporativa',
                 '/ecommerce': 'ecommerce',
                 '/blog': 'home', // No hay página de blog explícita en el destino aún
-                '/contact': 'home',
+                '/contact': 'contacto',
                 '/privacy-policy': 'home',
                 '/terms-of-service': 'home',
                 '/resources': 'home',

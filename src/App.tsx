@@ -15,6 +15,7 @@ import RPAPageSection from './components/RPAPageSection';
 import NoCodePageSection from './components/NoCodePageSection';
 import AgenticAIPageSection from './components/AgenticAIPageSection';
 import PortfolioLibrarySection from './components/PortfolioLibrarySection';
+import ContactFormSection from './components/ContactFormSection';
 import { Search, Megaphone, Share2, PenTool, Mail, TrendingUp, Target, BarChart, Zap, Globe, Users, Clock, Cpu, Settings, Workflow, Bot, Database, Link, ShieldCheck, RefreshCcw, MessageCircle } from 'lucide-react';
 import Footer from './components/Footer';
 import CookieBanner from './components/layout/CookieBanner';
@@ -243,8 +244,30 @@ export default function App() {
               <SuccessCaseAluvalle onBack={() => navigateTo('home')} />
             </motion.div>
           )}
+
+          {currentPage === 'contacto' && (
+            <motion.div 
+              key="contacto"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+            >
+              <ContactFormSection />
+            </motion.div>
+          )}
         </AnimatePresence>
       </main>
+
+      {/* Floating WhatsApp Button */}
+      <a 
+        href="https://wa.me/5492995504783" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-lg shadow-[#25D366]/30 hover:scale-110 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center group"
+        aria-label="Contactar por WhatsApp"
+      >
+        <MessageCircle size={32} className="group-hover:animate-pulse" />
+      </a>
 
       <Footer onNavigate={navigateTo} />
       <CookieBanner onNavigate={navigateTo} />

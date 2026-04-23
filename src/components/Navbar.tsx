@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 
 export type CategoryId = 'desarrollo-web' | 'marketing-digital' | 'automatizacion';
-export type PageId = 'home' | 'landing' | 'corporativa' | 'ecommerce' | 'portfolio-library' | 'marketing' | 'seo' | 'sem' | 'social-media' | 'content-marketing' | 'email-marketing' | 'automatizacion' | 'auto-marketing' | 'rpa' | 'no-code' | 'ia-agentica' | 'aluvalle';
+export type PageId = 'home' | 'landing' | 'corporativa' | 'ecommerce' | 'portfolio-library' | 'marketing' | 'seo' | 'sem' | 'social-media' | 'content-marketing' | 'email-marketing' | 'automatizacion' | 'auto-marketing' | 'rpa' | 'no-code' | 'ia-agentica' | 'aluvalle' | 'contacto';
 
 interface NavbarProps {
   onNavigate: (id: PageId) => void;
@@ -118,14 +118,12 @@ const Navbar = ({ onNavigate, currentPage }: NavbarProps) => {
               )}
             </div>
           ))}
-          <a 
-            href="https://wa.me/tu-numero" 
-            target="_blank" 
-            rel="noopener noreferrer"
+          <button 
+            onClick={() => onNavigate('contacto')}
             className="bg-primary hover:bg-cyan-700 text-white px-6 py-2.5 rounded-full font-bold text-sm shadow-lg shadow-blue-900/20 transition-all"
           >
             Presupuesto
-          </a>
+          </button>
         </nav>
 
         {/* Mobile Toggle */}
@@ -202,12 +200,15 @@ const Navbar = ({ onNavigate, currentPage }: NavbarProps) => {
                 )}
               </div>
             ))}
-            <a 
-              href="https://wa.me/tu-numero" 
+            <button 
+              onClick={() => {
+                onNavigate('contacto');
+                setIsOpen(false);
+              }}
               className="bg-primary text-white text-center py-4 rounded-xl font-bold mt-4"
             >
               Consultar Proyecto
-            </a>
+            </button>
           </motion.div>
         )}
       </AnimatePresence>
