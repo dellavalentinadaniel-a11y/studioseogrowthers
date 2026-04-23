@@ -21,7 +21,7 @@ const LogoComponent = ({ className, size = 'md', isLink = true }: LogoComponentP
       <img 
         src="/imagenes/logo/logo_official.png" 
         alt="SEO Growthers" 
-        className={`${sizeClasses[size] || sizeClasses.md} w-auto object-contain`}
+        className={`${sizeClasses[size] || sizeClasses.md} w-auto object-contain rounded-full`}
       />
     </div>
   );

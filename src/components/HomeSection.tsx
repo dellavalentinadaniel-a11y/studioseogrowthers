@@ -39,9 +39,9 @@ const HomeSection = ({ onNavigate }: HomeSectionProps) => (
             <div className="absolute -inset-4 bg-primary/20 rounded-full blur-2xl animate-pulse group-hover:bg-primary/30 transition-colors"></div>
             <div className="relative bg-white/5 backdrop-blur-xl border border-white/10 p-5 rounded-3xl shadow-2xl transition-transform group-hover:scale-105">
               <img 
-                src="/imagenes/logo/logo.png" 
+                src="/imagenes/logo/logo_official.png" 
                 alt="Logo Isotipo" 
-                className="h-20 w-auto object-contain"
+                className="h-20 w-auto object-contain rounded-full shadow-2xl shadow-primary/20"
               />
             </div>
           </a>

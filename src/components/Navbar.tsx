@@ -63,7 +63,7 @@ const Navbar = ({ onNavigate, currentPage }: NavbarProps) => {
           <img 
             src="/imagenes/logo/logo_official.png" 
             alt="SEO Growthers Logo" 
-            className="h-9 w-auto object-contain relative z-10 transition-transform duration-500 group-hover:scale-105"
+            className="h-9 w-auto object-contain rounded-full relative z-10 transition-transform duration-500 group-hover:scale-105"
           />
         </a>
 
