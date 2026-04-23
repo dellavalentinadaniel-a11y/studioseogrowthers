@@ -61,6 +61,7 @@ const ContactFormSection = () => {
                   <select 
                     name="motivo" 
                     required 
+                    aria-label="Motivo de la consulta"
                     className="w-full bg-black/40 border border-white/5 rounded-2xl py-4 px-6 text-white appearance-none focus:outline-none focus:border-cyan-400/50 transition-all"
                   >
                     <option value="" disabled selected>Selecciona un vector</option>

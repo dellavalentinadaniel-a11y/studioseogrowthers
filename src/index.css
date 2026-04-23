@@ -29,6 +29,7 @@
 
 @layer utilities {
   .text-balance {
+    /* Modern text-wrap for supported browsers */
     text-wrap: balance;
   }
   
