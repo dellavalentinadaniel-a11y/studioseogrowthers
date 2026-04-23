@@ -110,9 +110,14 @@ const ContactFormSection = () => {
             <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center text-white mb-6">
               <Mail size={20} />
             </div>
-            <h3 className="text-xl font-bold text-white mb-2">Ventas y Proyectos</h3>
-            <p className="text-gray-400 text-sm mb-6 leading-relaxed">Asesoramiento comercial para obras y distribuidores.</p>
-            <a href="mailto:seogrowthers@outlook.es" className="text-white font-bold hover:text-cyan-400 transition-colors">seogrowthers@outlook.es</a>
+            <h3 className="text-xl font-bold text-white mb-2">Ventas y Servicios</h3>
+            <p className="text-gray-400 text-sm mb-4 leading-relaxed">Solicitudes de presupuesto y asesoramiento técnico.</p>
+            <a href="mailto:seogrowthers@gmail.com" className="text-white font-bold hover:text-cyan-400 transition-colors block mb-4">seogrowthers@gmail.com</a>
+            
+            <div className="pt-4 border-t border-white/5">
+              <p className="text-gray-500 text-xs uppercase tracking-widest mb-2">Para contactarnos</p>
+              <a href="mailto:seogrowthers@outlook.es" className="text-gray-300 hover:text-cyan-400 transition-colors text-sm">seogrowthers@outlook.es</a>
+            </div>
           </div>
 
           {/* WhatsApp Card */}
