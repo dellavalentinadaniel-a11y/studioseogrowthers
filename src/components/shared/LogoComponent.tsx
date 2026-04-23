@@ -19,7 +19,7 @@ const LogoComponent = ({ className, size = 'md', isLink = true }: LogoComponentP
   const Content = (
     <div className={`flex items-center gap-3 ${className}`}>
       <img 
-        src="/imagenes/logo/logo.png" 
+        src="/imagenes/logo/logo_official.png" 
         alt="SEO Growthers" 
         className={`${sizeClasses[size] || sizeClasses.md} w-auto object-contain`}
       />
