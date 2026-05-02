@@ -27,11 +27,15 @@ const HomeSection = ({ onNavigate }: HomeSectionProps) => (
     <section className="pt-32 pb-16 px-[8%] relative overflow-hidden">
       {/* Dynamic Background */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src="/imagenes/home/hero_bg.png" 
-          alt="Hero Background" 
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
           className="w-full h-full object-cover opacity-40 mix-blend-overlay"
-        />
+        >
+          <source src="/banner.mp4" type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black"></div>
       </div>
 
@@ -49,7 +53,7 @@ const HomeSection = ({ onNavigate }: HomeSectionProps) => (
             <div className="absolute -inset-4 bg-primary/20 rounded-full blur-2xl animate-pulse group-hover:bg-primary/30 transition-colors"></div>
             <div className="relative bg-white/5 backdrop-blur-xl border border-white/10 p-5 rounded-3xl shadow-2xl transition-transform group-hover:scale-105">
               <img 
-                src="/imagenes/logo/logo_official.png" 
+                src="/imagenes/logo/logo_kiwi.png" 
                 alt="Logo Isotipo" 
                 className="h-20 w-auto object-contain rounded-full shadow-2xl shadow-primary/20"
               />

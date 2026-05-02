@@ -62,7 +62,7 @@ const Navbar = ({ onNavigate, currentPage }: NavbarProps) => {
         >
           <div className="absolute -inset-2 bg-primary/20 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           <img 
-            src="/imagenes/logo/logo_official.png" 
+            src="/imagenes/logo/logo_kiwi.png" 
             alt="SEO Growthers Logo" 
             className="h-9 w-auto object-contain rounded-full relative z-10 transition-transform duration-500 group-hover:scale-105"
           />
